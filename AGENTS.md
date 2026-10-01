@@ -33,7 +33,7 @@ Pages:
 
 | Key | Used by | Contents |
 |---|---|---|
-| `site` | every page | `name`, `tagline`, `email`, `location`, `menuFoot`, `nav` (id, label, href, icon), `footer` |
+| `site` | every page | `name`, `tagline`, `email`, `location`, `menuFoot`, `nav` (id, label, href, icon), `footer`, `analytics.googleTagId` |
 | `home` | `index.html` | `title`, `hero` slides, `selectedWork`, `explore` tiles, `statement` |
 | `projects` | `projects.html`, home | `title`, `heading`, `allLabel`, `items` |
 | `resume` | `resume.html` | `title`, `heading`, `sub`, `sections` (items or tags), `contactHeading`, `actions` |
@@ -61,6 +61,10 @@ Rules for editing it:
 `MM_FALLBACK_SITE` in `js/main.js` is a hand-kept copy of the name, email and nav. **If you change `site.email` or `site.nav` in `data.js`, update it too.**
 
 Main-site globals are prefixed `mm`/`MM_`. Because everything shares one global scope, wrap page code in the `mmPage`/`storePage` callback, and never declare top-level `const`/`let` in page scripts with names that might clash (e.g. `products`).
+
+## Analytics
+
+Google Analytics (gtag.js) is loaded by `mmInitAnalytics` in `js/main.js` using `site.analytics.googleTagId` from `data.js`; don't paste the Google snippet into pages. It's skipped on `file://` and `localhost`, so previews and tests don't count as visits. If you test it on another host, block requests to `google-analytics.com/g/collect` so test visits don't reach the real property. Because the site uses analytics cookies, don't add "no cookies / no tracking" claims to the copy.
 
 ## Control page and browser storage
 

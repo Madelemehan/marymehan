@@ -53,7 +53,7 @@ function mmReset() {
 // Just enough to draw the menu, nav and footer if data.js can't be used
 const MM_FALLBACK_SITE = {
   name: "Mary Adele Mehan",
-  email: "hi@marymehan.com",
+  email: "hello@marymehan.com",
   menuFoot: "Mary Adele Mehan",
   nav: [
     { id: "home", label: "Home", href: "index.html", icon: "home" },
@@ -61,7 +61,7 @@ const MM_FALLBACK_SITE = {
     { id: "resume", label: "Resume", href: "resume.html", icon: "person" },
     { id: "store", label: "Store", href: "store/index.html", icon: "bag" },
   ],
-  footer: { copyright: "© Mary Adele Mehan. All rights reserved.", note: "" },
+  footer: { copyright: "© Mary Mehan. All rights reserved.", note: "" },
 };
 
 const MM_LOAD_TIMEOUT = 10000;
@@ -100,6 +100,22 @@ const mmContent = Promise.race([
     setTimeout(() => reject(new Error(`timed out after ${MM_LOAD_TIMEOUT / 1000}s`)), MM_LOAD_TIMEOUT)
   ),
 ]).then(mmWithDefaults);
+
+// Google Analytics (gtag.js) with the ID from data.js → site.analytics.googleTagId.
+// Same calls as Google's standard snippet. Skipped on file:// and localhost so
+// local previews and tests don't show up as visits.
+function mmInitAnalytics(id) {
+  if (!id || location.protocol === "file:" || /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)) return;
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function gtag() { dataLayer.push(arguments); };
+  gtag("js", new Date());
+  gtag("config", id);
+  const script = document.createElement("script");
+  script.async = true;
+  script.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(id);
+  document.head.appendChild(script);
+}
+mmContent.then((content) => mmInitAnalytics(content.site.analytics?.googleTagId), () => {});
 
 // Resolves with the content once data.js is loaded, the DOM is ready, and
 // the shared chrome is built. If data.js can't be loaded, the chrome is built
