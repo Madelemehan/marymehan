@@ -18,14 +18,15 @@ Pages:
 
 ## Ground rules
 
-1. **The site must work when opened straight from disk (`file://`).** That means:
+1. **Run the tests before and after every change: `node --test tests/*.test.mjs`.** Run them *before* you start, so you know the baseline is green and any failure afterwards is yours. Run them again before committing, and don't commit or push while any test fails. If a test fails because you deliberately changed behavior, update that test in the same change, and say so; never delete or weaken a test just to get it passing. When you add a page, a `data.js` section or field, or a store feature, add tests for it. See [Testing](#testing).
+2. **The site must work when opened straight from disk (`file://`).** That means:
    - No ES modules (`<script type="module">`, `import`, `export`). Browsers block them on `file://`.
    - No `fetch()` or JSON imports of local files. Same reason.
    - Load things with plain `<script src="...">` tags. Shared code lives in global functions and constants.
-2. **Make content edits in `data.js`.** All visible content comes from `data.js`, so any content change (text, headings, links, email, projects, resume entries, products, prices, categories, hero slides) should be made there, not in the HTML or JS. Only touch code when `data.js` can't express the change. Then add the new field or section to `data.js` and render it from there, rather than hardcoding the text.
-3. **Keep the design language.** Dark, monochrome, editorial. Use the tokens and classes in `css/style.css` (`--bg`, `--text`, `--hairline`, `.wrap`, `.page-hero`, `.section`, `.card`, `.chip`, `.btn`, `.panel`, `.field`, the `.t-1`…`.t-4` / `.t-dark` tones). Store-only styles go in `store/css/store.css`, built from the same tokens.
-4. **Match the surrounding code.** Same naming, comment density and idioms as the file you're editing.
-5. **Never commit secrets.** PayPal *client IDs* are public and fine; PayPal secrets, API keys and service-account files are not. The sibling project `../retailkit/commerce` contains a GCP service-account key (`quiltsie-deployer.json`); never copy it here. The whole repo is published, so anything committed is public.
+3. **Make content edits in `data.js`.** All visible content comes from `data.js`, so any content change (text, headings, links, email, projects, resume entries, products, prices, categories, hero slides) should be made there, not in the HTML or JS. Only touch code when `data.js` can't express the change. Then add the new field or section to `data.js` and render it from there, rather than hardcoding the text.
+4. **Keep the design language.** Dark, monochrome, editorial. Use the tokens and classes in `css/style.css` (`--bg`, `--text`, `--hairline`, `.wrap`, `.page-hero`, `.section`, `.card`, `.chip`, `.btn`, `.panel`, `.field`, the `.t-1`…`.t-4` / `.t-dark` tones). Store-only styles go in `store/css/store.css`, built from the same tokens.
+5. **Match the surrounding code.** Same naming, comment density and idioms as the file you're editing.
+6. **Never commit secrets.** PayPal *client IDs* are public and fine; PayPal secrets, API keys and service-account files are not. The sibling project `../retailkit/commerce` contains a GCP service-account key (`quiltsie-deployer.json`); never copy it here. The whole repo is published, so anything committed is public.
 
 ## Content: `data.js`
 
@@ -80,25 +81,33 @@ Google Analytics (gtag.js) is loaded by `mmInitAnalytics` in `js/main.js` using 
 - Escape anything from the URL or user input before putting it in `innerHTML` (use `esc()`); search does this.
 - The cart doesn't currently cap quantities at `stock`.
 
-## Running and testing
+## Testing
 
 ```bash
-python3 -m http.server   # then open http://localhost:8000
+node --test tests/*.test.mjs     # all tests, ~20 s; needs Node 22+ and Chrome/Chromium
+python3 -m http.server           # to look at the site yourself: http://localhost:8000
 ```
 
-Also check pages opened directly from disk, since that's a supported way to view the site.
+The tests use only Node's built-ins (no `npm install`). The browser tests drive an installed Chrome through the DevTools protocol (`tests/lib/browser.mjs`). If Chrome isn't in a standard location, set `CHROME_PATH`. Without Chrome the browser tests are skipped locally; CI sets `REQUIRE_BROWSER=1` so they can't be skipped there.
 
-There's no test suite. To verify a change, load the affected pages in a browser (headless Chrome via Puppeteer works well) and check:
+| File | Checks |
+|---|---|
+| `tests/data.test.mjs` | `data.js` runs, is strict JSON, and has every section and field the pages need. Products, categories, nav icons, images and links are consistent. Every `data-store-text` slot in the store HTML has text in `store.pages`. `MM_FALLBACK_SITE` matches `data.js`. `llms.txt` builds. |
+| `tests/static.test.mjs` | All JS parses. No modules or `fetch()`. `main.js` loads first on every page (then `store.js` on store pages). Local links exist. No secrets in tracked files. |
+| `tests/browser.test.mjs` | Every page, including each category and product, renders from both `http://` and `file://` with no errors, and with the nav, footer, titles and expected counts. Store flows: cart, quantities, remove, checkout summary, search (including escaping), wishlist. Control-page edits and reset. No horizontal scroll at 390 px. Analytics stays off on localhost and `file://`. A missing, broken or incomplete `data.js` shows "Content unavailable" with the nav still working. |
 
-- There are no console errors (a missing `favicon.ico` 404 is expected).
-- Pages work from both `http://` and `file://`.
-- Store flows still work: add to cart, cart +/−/remove, checkout summary, search.
-- Pages still show the "Content unavailable" notice if `data.js` is missing or broken.
-- The layout works at phone width (~390 px) with no horizontal scroll.
+How the browser tests work:
+
+- Pages set `<html data-mm-state="ready|error">` when `main.js` finishes rendering, and the tests wait on that. Keep rendering inside `mmPage`/`storePage` so it stays accurate.
+- All non-local network requests are blocked, so tests never reach PayPal or Google Analytics. Checkout is expected to show "Checkout unavailable" in tests.
+- Each test page gets a fresh browser profile (empty `localStorage`).
+- `tests/lib/server.mjs` serves the repo like GitHub Pages, and can swap in a broken `data.js` for the failure tests.
+
+Expectations are derived from `data.js` (e.g. "one card per product"), so ordinary content edits shouldn't need test changes. If a content edit makes a test fail, the content is probably inconsistent, e.g. a product in a category that doesn't exist.
 
 ## Deploy
 
-Pushing to `main` deploys to GitHub Pages via `.github/workflows/deploy.yml`, which uploads the whole repo root. Before upload it runs `node scripts/build-llms-txt.mjs` to generate `/llms.txt` from `data.js`. That step **fails the deploy if `data.js` is missing, invalid, or lacks a section**, so a broken `data.js` never goes live.
+Pushing to `main` deploys to GitHub Pages via `.github/workflows/deploy.yml`. Its `test` job runs the full test suite first; **if any test fails, nothing is deployed**. Pull requests run the tests too, without deploying. The deploy job uploads the whole repo root. Before upload it runs `node scripts/build-llms-txt.mjs` to generate `/llms.txt` from `data.js`. That step **fails the deploy if `data.js` is missing, invalid, or lacks a section**, so a broken `data.js` never goes live.
 
 - `llms.txt` is generated; it's in `.gitignore` and shouldn't be committed. If you add a new top-level section or page, update `scripts/build-llms-txt.mjs` to describe it.
 - The repo is `Madelemehan/marymehan` (`git@github.com:Madelemehan/marymehan.git`). DNS is on Cloudflare. The Pages custom domain is `marymehan.com`; moving it to `www.marymehan.com` with HTTPS enforced is pending a `www` DNS record.

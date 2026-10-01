@@ -3,6 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  pull_request:          # tests only; deploy is skipped
   workflow_dispatch:
 
 permissions:
@@ -11,11 +12,29 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  # deploys queue up on one group; each pull request gets its own
+  group: ${{ github.event_name == 'pull_request' && format('test-{0}', github.ref) || 'pages' }}
   cancel-in-progress: true
 
 jobs:
+  # The site must pass the tests (tests/*.test.mjs) before it's deployed
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run tests
+        run: node --test tests/*.test.mjs
+        env:
+          REQUIRE_BROWSER: "1"   # fail rather than skip if Chrome is missing
+
   deploy:
+    needs: test
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     environment:
       name: github-pages

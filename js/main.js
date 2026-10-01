@@ -143,11 +143,13 @@ mmReady.catch(() => {}); // reported above
 
 // Run a page's render code once content is ready. If data.js failed to load,
 // it doesn't run; if it throws (e.g. a section is missing), the error notice replaces the page.
+// When done, <html data-mm-state> is "ready" or "error" (the tests wait on it).
 function mmPage(render) {
   return mmReady.then(
     (data) => {
       try {
         render(data);
+        document.documentElement.dataset.mmState ??= "ready";
       } catch (err) {
         console.error("Could not render this page from data.js:", err);
         mmContentError();
@@ -173,6 +175,7 @@ function mmContentError() {
   const top = document.querySelector(".topbar");
   top ? top.after(notice) : document.body.prepend(notice);
   document.body.classList.add("content-failed");
+  document.documentElement.dataset.mmState = "error";
 }
 
 /* ---------- icons (stroke-based line icons) ---------- */
