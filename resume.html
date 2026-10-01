@@ -11,109 +11,76 @@
 
   <div class="page-hero">
     <div class="wrap">
-      <h1>Resume</h1>
-      <p>Experience · Education · Skills</p>
+      <h1 id="resume-heading"></h1>
+      <p id="resume-sub"></p>
     </div>
   </div>
 
-  <div class="wrap resume">
-
-    <div class="resume-block">
-      <h3>Experience</h3>
-      <div class="resume-item">
-        <div class="when">2023 — Now</div>
-        <div class="what">
-          <strong>Senior Designer</strong>
-          <em>Studio Meridian — New York</em>
-          <p>Lead designer on brand and digital engagements. Directed the Meridian rebrand across print, packaging, and web; managed a team of three designers.</p>
-        </div>
-      </div>
-      <div class="resume-item">
-        <div class="when">2020 — 2023</div>
-        <div class="what">
-          <strong>Designer</strong>
-          <em>Norr &amp; Co — Brooklyn</em>
-          <p>Designed e-commerce experiences and editorial systems for retail and publishing clients. Shipped Norr Commerce, a full storefront redesign.</p>
-        </div>
-      </div>
-      <div class="resume-item">
-        <div class="when">2018 — 2020</div>
-        <div class="what">
-          <strong>Junior Designer</strong>
-          <em>Paper Weather Press</em>
-          <p>Production and layout for a quarterly print journal; built the studio's first type specimen library.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="resume-block">
-      <h3>Education</h3>
-      <div class="resume-item">
-        <div class="when">2014 — 2018</div>
-        <div class="what">
-          <strong>BFA, Graphic Design</strong>
-          <em>Rhode Island School of Design</em>
-        </div>
-      </div>
-    </div>
-
-    <div class="resume-block">
-      <h3>Skills</h3>
-      <div class="skill-tags">
-        <span>Brand Identity</span>
-        <span>Editorial Design</span>
-        <span>Art Direction</span>
-        <span>Typography</span>
-        <span>UX / UI</span>
-        <span>Figma</span>
-        <span>Adobe CC</span>
-        <span>HTML / CSS</span>
-        <span>Print Production</span>
-      </div>
-    </div>
-
-    <div class="resume-block">
-      <h3>Contact</h3>
-      <div class="resume-item">
-        <div class="when">Email</div>
-        <div class="what"><strong id="contact-email">hello@marymehan.com</strong></div>
-      </div>
-      <div class="resume-item">
-        <div class="when">Based in</div>
-        <div class="what"><strong>New York, NY</strong></div>
-      </div>
-    </div>
-
+  <!-- blocks from data.js → resume.sections, then contact -->
+  <div class="wrap resume" id="resume-body">
     <div class="resume-actions">
-      <a class="btn" id="email-btn" href="mailto:hello@marymehan.com">Email me</a>
-      <a class="btn ghost" href="#" onclick="window.print(); return false;">Print / PDF</a>
+      <a class="btn" id="email-btn"></a>
+      <a class="btn ghost" id="print-btn" href="#" onclick="window.print(); return false;"></a>
     </div>
-
   </div>
 
-  <footer class="site-footer">
-    <div class="wrap">
-      <div class="foot-brand">mary mehan</div>
-      <div class="foot-links">
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="resume.html">Resume</a>
-        <a href="control.html">Control</a>
-      </div>
-      <div class="foot-fine">
-        <span id="foot-email">hello@marymehan.com</span><br />
-        © 2026 Mary Mehan. All rights reserved.
-      </div>
-    </div>
-  </footer>
+  <!-- filled from data.js by main.js -->
+  <footer class="site-footer"></footer>
 
   <script src="js/main.js"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const data = mmLoad();
-      document.getElementById("foot-email").textContent = data.email;
-      document.getElementById("contact-email").textContent = data.email;
-      document.getElementById("email-btn").href = "mailto:" + data.email;
+    mmPage((data) => {
+      const resume = data.resume;
+      const $ = (id) => document.getElementById(id);
+      const el = (tag, cls, text) => {
+        const e = document.createElement(tag);
+        if (cls) e.className = cls;
+        if (text) e.textContent = text;
+        return e;
+      };
+
+      document.title = resume.title;
+      $("resume-heading").textContent = resume.heading;
+      $("resume-sub").textContent = resume.sub;
+
+      function item(when, title, org, text) {
+        const row = el("div", "resume-item");
+        const what = el("div", "what");
+        what.appendChild(el("strong", "", title));
+        if (org) what.appendChild(el("em", "", org));
+        if (text) what.appendChild(el("p", "", text));
+        row.append(el("div", "when", when), what);
+        return row;
+      }
+
+      // contact comes from the site-wide email and location
+      const sections = [
+        ...resume.sections,
+        {
+          heading: resume.contactHeading,
+          items: [
+            { when: "Email", title: data.site.email },
+            { when: "Based in", title: data.site.location },
+          ],
+        },
+      ];
+
+      const actions = document.querySelector(".resume-actions");
+      sections.forEach((s) => {
+        const block = el("div", "resume-block");
+        block.appendChild(el("h3", "", s.heading));
+        (s.items || []).forEach((i) => block.appendChild(item(i.when, i.title, i.org, i.text)));
+        if (s.tags) {
+          const tags = el("div", "skill-tags");
+          s.tags.forEach((t) => tags.appendChild(el("span", "", t)));
+          block.appendChild(tags);
+        }
+        $("resume-body").insertBefore(block, actions);
+      });
+
+      $("email-btn").textContent = resume.actions.email;
+      $("email-btn").href = "mailto:" + data.site.email;
+      $("print-btn").textContent = resume.actions.print;
     });
   </script>
 </body>

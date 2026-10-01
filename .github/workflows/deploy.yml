@@ -22,7 +22,17 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v5
+      - id: pages
+        uses: actions/configure-pages@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      # llms.txt summarizes data.js for AI tools; built fresh on every deploy.
+      # Also stops the deploy if data.js is missing or malformed.
+      - name: Build llms.txt
+        run: node scripts/build-llms-txt.mjs
+        env:
+          SITE_URL: ${{ steps.pages.outputs.base_url }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .

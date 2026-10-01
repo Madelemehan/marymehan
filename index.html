@@ -9,52 +9,9 @@
 </head>
 <body data-page="home">
 
-  <!-- full-screen hero carousel -->
+  <!-- full-screen hero carousel (slides from data.js → home.hero) -->
   <section class="hero" aria-label="Featured">
-    <div class="hero-track">
-      <div class="hero-slide">
-        <div class="slide-art art-photo" style="background-image: url('img/hero-1.jpg')"></div>
-        <div class="slide-caption">
-          <div class="slide-title">Mary<br />Mehan</div>
-          <div class="slide-sub">Designer &amp; art director.<br />Identities, editorial, and digital — New York.</div>
-        </div>
-      </div>
-      <div class="hero-slide">
-        <div class="slide-art art-figure"></div>
-        <div class="slide-caption">
-          <div class="slide-title">The<br />Work</div>
-          <div class="slide-sub">Identities, editorial, and digital.<br />Selected projects, 2018 to now.</div>
-        </div>
-      </div>
-      <div class="hero-slide">
-        <div class="slide-art art-2" data-mark="26"></div>
-        <div class="slide-caption">
-          <div class="slide-title">Atlas<br />Field Guide</div>
-          <div class="slide-sub">172 pages of maps, margins, and quiet type.<br />Editorial design, 2025.</div>
-        </div>
-      </div>
-      <div class="hero-slide">
-        <div class="slide-art art-3" data-mark="NC"></div>
-        <div class="slide-caption">
-          <div class="slide-title">Norr<br />Commerce</div>
-          <div class="slide-sub">A storefront that gets out of the way.<br />UX / UI, shipped 2025.</div>
-        </div>
-      </div>
-      <div class="hero-slide">
-        <div class="slide-art art-photo dim" style="background-image: url('img/hero-4.jpg'); background-position: center 55%"></div>
-        <div class="slide-caption">
-          <div class="slide-title">Off the<br />Clock</div>
-          <div class="slide-sub">Field notes, fireplaces,<br />and found compositions.</div>
-        </div>
-      </div>
-      <div class="hero-slide">
-        <div class="slide-art art-portrait"></div>
-        <div class="slide-caption">
-          <div class="slide-title">Say<br />Hello</div>
-          <div class="slide-sub">Now booking for 2026.<br /><span id="hero-email">hello@marymehan.com</span></div>
-        </div>
-      </div>
-    </div>
+    <div class="hero-track"></div>
     <div class="hero-progress"></div>
   </section>
 
@@ -62,8 +19,8 @@
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <h2>Selected Work</h2>
-        <a class="more" href="projects.html">View all</a>
+        <h2 id="work-heading"></h2>
+        <a class="more" id="work-more"></a>
       </div>
       <div class="scroll-row" id="home-row"></div>
     </div>
@@ -73,53 +30,59 @@
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <h2>Explore</h2>
+        <h2 id="explore-heading"></h2>
       </div>
-      <div class="grid-2">
-        <a class="cat-tile" href="projects.html">
-          <span class="tile-label">Projects<small>Case studies &amp; selected work</small></span>
-        </a>
-        <a class="cat-tile" href="resume.html">
-          <span class="tile-label">Resume<small>Experience · Skills · Contact</small></span>
-        </a>
-      </div>
+      <div class="grid-2" id="explore-tiles"></div>
     </div>
   </section>
 
   <!-- statement strip -->
   <section class="statement">
     <div class="wrap">
-      <div class="kicker">About</div>
-      <p id="statement-text">Work that holds its shape.</p>
-      <a class="cta" href="resume.html">Get in touch</a>
+      <div class="kicker" id="statement-kicker"></div>
+      <p id="statement-text"></p>
+      <a class="cta" id="statement-cta"></a>
     </div>
   </section>
 
-  <footer class="site-footer">
-    <div class="wrap">
-      <div class="foot-brand">mary mehan</div>
-      <div class="foot-links">
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="resume.html">Resume</a>
-        <a href="control.html">Control</a>
-      </div>
-      <div class="foot-fine">
-        <span id="foot-email">hello@marymehan.com</span><br />
-        © 2026 Mary Mehan. All rights reserved.<br />
-        Built with intent. No cookies, no tracking.
-      </div>
-    </div>
-  </footer>
+  <!-- filled from data.js by main.js -->
+  <footer class="site-footer"></footer>
 
   <script src="js/main.js"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const data = mmLoad();
-      document.getElementById("statement-text").textContent = data.statement;
-      document.getElementById("foot-email").textContent = data.email;
-      document.getElementById("hero-email").textContent = data.email;
-      renderRow(document.getElementById("home-row"), data.projects.slice(0, 5));
+    mmPage((data) => {
+      const home = data.home;
+      const $ = (id) => document.getElementById(id);
+      document.title = home.title;
+
+      renderHero(document.querySelector(".hero"), home.hero);
+      initHero();
+
+      const work = home.selectedWork;
+      $("work-heading").textContent = work.heading;
+      $("work-more").textContent = work.more.label;
+      $("work-more").href = work.more.href;
+      renderRow($("home-row"), data.projects.items.slice(0, work.count));
+
+      $("explore-heading").textContent = home.explore.heading;
+      home.explore.tiles.forEach((t) => {
+        const a = document.createElement("a");
+        a.className = "cat-tile";
+        a.href = t.href;
+        a.innerHTML = `<span class="tile-label"></span>`;
+        const label = a.firstElementChild;
+        label.append(t.label);
+        const small = document.createElement("small");
+        small.textContent = t.sub;
+        label.appendChild(small);
+        $("explore-tiles").appendChild(a);
+      });
+
+      const st = home.statement;
+      $("statement-kicker").textContent = st.kicker;
+      $("statement-text").textContent = st.text;
+      $("statement-cta").textContent = st.cta.label;
+      $("statement-cta").href = st.cta.href;
     });
   </script>
 </body>

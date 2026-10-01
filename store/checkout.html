@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0e0e0e" />
+  <title>Checkout — mary mehan store</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="css/store.css" />
+</head>
+<body data-page="store" data-root="../">
+
+  <div class="page-hero">
+    <div class="wrap">
+      <h1>Checkout</h1>
+      <p>Review your order and pay securely with PayPal.</p>
+    </div>
+  </div>
+
+  <div class="wrap narrow">
+    <!-- shown instead of the checkout when the cart is empty -->
+    <div class="empty" id="checkout-empty" hidden>
+      <h2>Your cart is empty</h2>
+      <p>Add something before checking out.</p>
+      <a class="btn ghost" href="index.html">Start shopping</a>
+    </div>
+
+    <div id="checkout-body">
+      <!-- order summary injected by checkout.js -->
+      <div id="checkout-summary"></div>
+
+      <div class="checkout-actions">
+        <!-- placeholder until the PayPal SDK is ready -->
+        <button class="btn block" id="checkout-loading-btn" disabled>Checkout loading…</button>
+        <!-- PayPal buttons render here once the SDK loads -->
+        <div id="paypal-button-container" hidden></div>
+      </div>
+      <p class="notice">Secured by PayPal — we never store your payment details.</p>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="foot-brand">mary mehan</div>
+      <div class="foot-links">
+        <a href="index.html">Store</a>
+        <a href="category.html?category=originals">Originals</a>
+        <a href="category.html?category=prints">Prints</a>
+        <a href="category.html?category=photography">Photography</a>
+        <a href="category.html?category=editions">Editions</a>
+        <a href="cart.html">Cart</a>
+      </div>
+      <div class="foot-links">
+        <a href="../index.html">Home</a>
+        <a href="../projects.html">Projects</a>
+        <a href="../resume.html">Resume</a>
+        <a href="../control.html">Control</a>
+      </div>
+      <div class="foot-fine">
+        <span id="foot-email">hello@marymehan.com</span><br />
+        © 2026 Mary Mehan. All rights reserved.<br />
+        Payments secured by PayPal. We never store your payment details.
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/checkout.js"></script>
+</body>
+</html>

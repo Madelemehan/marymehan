@@ -11,8 +11,8 @@
 
   <div class="page-hero">
     <div class="wrap">
-      <h1>Projects</h1>
-      <p id="proj-count">6 works</p>
+      <h1 id="proj-heading"></h1>
+      <p id="proj-count"></p>
     </div>
   </div>
 
@@ -21,39 +21,27 @@
     <div class="grid-products" id="proj-grid"></div>
   </div>
 
-  <footer class="site-footer">
-    <div class="wrap">
-      <div class="foot-brand">mary mehan</div>
-      <div class="foot-links">
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="resume.html">Resume</a>
-        <a href="control.html">Control</a>
-      </div>
-      <div class="foot-fine">
-        <span id="foot-email">hello@marymehan.com</span><br />
-        © 2026 Mary Mehan. All rights reserved.
-      </div>
-    </div>
-  </footer>
+  <!-- filled from data.js by main.js -->
+  <footer class="site-footer"></footer>
 
   <script src="js/main.js"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const data = mmLoad();
-      document.getElementById("foot-email").textContent = data.email;
+    mmPage((data) => {
+      const projects = data.projects;
+      document.title = projects.title;
+      document.getElementById("proj-heading").textContent = projects.heading;
 
       const grid = document.getElementById("proj-grid");
       const chipsBox = document.getElementById("chips");
       const count = document.getElementById("proj-count");
-      const cats = ["All", ...new Set(data.projects.map((p) => p.cat))];
-      let active = "All";
+      const cats = [projects.allLabel, ...new Set(projects.items.map((p) => p.cat))];
+      let active = projects.allLabel;
 
       function draw() {
         const list =
-          active === "All"
-            ? data.projects
-            : data.projects.filter((p) => p.cat === active);
+          active === projects.allLabel
+            ? projects.items
+            : projects.items.filter((p) => p.cat === active);
         renderRow(grid, list);
         count.textContent = `${list.length} work${list.length === 1 ? "" : "s"}`;
       }

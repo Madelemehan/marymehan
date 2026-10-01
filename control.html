@@ -94,7 +94,7 @@
       <div class="panel-head">Reset</div>
       <div class="panel-body">
         <p style="font-size: 13px; color: var(--text-dim); margin-bottom: 16px;">
-          Restore all site content to the built-in defaults. This only affects this browser.
+          Discard the edits saved in this browser and go back to the content in data.js.
         </p>
         <button class="btn ghost" id="reset-all">Reset to defaults</button>
       </div>
@@ -102,25 +102,13 @@
 
   </div>
 
-  <footer class="site-footer">
-    <div class="wrap">
-      <div class="foot-brand">mary mehan</div>
-      <div class="foot-links">
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="resume.html">Resume</a>
-        <a href="control.html">Control</a>
-      </div>
-      <div class="foot-fine">
-        © 2026 Mary Mehan. All rights reserved.
-      </div>
-    </div>
-  </footer>
+  <!-- filled from data.js by main.js -->
+  <footer class="site-footer"></footer>
 
   <script src="js/main.js"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      let data = mmLoad();
+    mmPage((loaded) => {
+      let data = loaded;
 
       const $ = (id) => document.getElementById(id);
 
@@ -131,16 +119,16 @@
       }
 
       function fillText() {
-        $("f-tagline").value = data.tagline;
-        $("f-statement").value = data.statement;
-        $("f-email").value = data.email;
+        $("f-tagline").value = data.site.tagline;
+        $("f-statement").value = data.home.statement.text;
+        $("f-email").value = data.site.email;
       }
 
       function drawProjects() {
         const list = $("proj-list");
         list.innerHTML = "";
-        $("proj-total").textContent = data.projects.length + " total";
-        data.projects.forEach((p, i) => {
+        $("proj-total").textContent = data.projects.items.length + " total";
+        data.projects.items.forEach((p, i) => {
           const li = document.createElement("li");
           const info = document.createElement("div");
           info.innerHTML = `<div class="li-name">${p.name}</div>
@@ -148,7 +136,7 @@
           const del = document.createElement("button");
           del.textContent = "Remove";
           del.addEventListener("click", () => {
-            data.projects.splice(i, 1);
+            data.projects.items.splice(i, 1);
             mmSave(data);
             drawProjects();
           });
@@ -159,9 +147,9 @@
       }
 
       $("save-text").addEventListener("click", () => {
-        data.tagline = $("f-tagline").value.trim() || data.tagline;
-        data.statement = $("f-statement").value.trim() || data.statement;
-        data.email = $("f-email").value.trim() || data.email;
+        data.site.tagline = $("f-tagline").value.trim() || data.site.tagline;
+        data.home.statement.text = $("f-statement").value.trim() || data.home.statement.text;
+        data.site.email = $("f-email").value.trim() || data.site.email;
         mmSave(data);
         fillText();
         flash($("text-notice"), "Saved");
@@ -170,7 +158,7 @@
       $("add-proj").addEventListener("click", () => {
         const name = $("p-name").value.trim();
         if (!name) { flash($("proj-notice"), "Name is required"); return; }
-        data.projects.unshift({
+        data.projects.items.unshift({
           name,
           cat: $("p-cat").value.trim() || "Uncategorized",
           year: $("p-year").value.trim() || String(new Date().getFullYear()),

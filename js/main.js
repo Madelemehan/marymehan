@@ -1,48 +1,162 @@
 /* MARY MEHAN — shared site logic
-   Content is stored in localStorage so the Control page can edit it.
-   Falls back to the defaults below on first visit or after a reset. */
+   All content lives in /data.js (window.MM_DATA). The Control page can override a few
+   fields (MM_EDITABLE); those edits are kept in localStorage, in this browser only. */
 
 const MM_KEY = "mm-site-content";
 
-const MM_DEFAULTS = {
-  tagline: "Design · Strategy · Direction",
-  statement:
-    "Work that holds its shape. Mary Mehan builds identities, interfaces, and stories with an editorial hand and an engineer's patience.",
-  email: "hello@marymehan.com",
-  projects: [
-    {
-      name: "Will We See a UFO in Our Lifetime?",
-      cat: "Data Analytics",
-      year: "2026",
-      role: "Research & Analysis",
-      tone: "t-dark",
-      href: "https://docs.google.com/presentation/d/1fIoBhxzarME9IrqiJumE7O31YF--njdriZYRxvHLkfY/edit",
-    },
-    { name: "Meridian Rebrand", cat: "Identity", year: "2026", role: "Creative Direction", tone: "t-1" },
-    { name: "Atlas Field Guide", cat: "Editorial", year: "2025", role: "Design & Layout", tone: "t-dark" },
-    { name: "Norr Commerce", cat: "Digital", year: "2025", role: "UX / UI", tone: "t-2" },
-    { name: "Hollow Light", cat: "Photography", year: "2024", role: "Art Direction", tone: "t-3" },
-    { name: "Civic Type System", cat: "Identity", year: "2024", role: "Type Design", tone: "t-4" },
-    { name: "Paper Weather", cat: "Editorial", year: "2023", role: "Concept & Design", tone: "t-dark" },
-  ],
+// Control-page field -> where it lives in data.js
+const MM_EDITABLE = {
+  tagline: ["site", "tagline"],
+  statement: ["home", "statement", "text"],
+  email: ["site", "email"],
+  projects: ["projects", "items"],
 };
 
+let MM_CONTENT = null; // data.js content, untouched
+
+// data.js sits next to this script's folder, wherever the page is
+const MM_DATA_URL = new URL("../data.js", document.currentScript.src);
+
+function mmGet(obj, path) {
+  return path.reduce((o, k) => o?.[k], obj);
+}
+
+function mmSet(obj, path, value) {
+  const last = path[path.length - 1];
+  path.slice(0, -1).reduce((o, k) => (o[k] ??= {}), obj)[last] = value;
+}
+
+// data.js content with this browser's Control-page edits applied
 function mmLoad() {
+  const data = structuredClone(MM_CONTENT);
   try {
-    const raw = localStorage.getItem(MM_KEY);
-    if (!raw) return structuredClone(MM_DEFAULTS);
-    return Object.assign(structuredClone(MM_DEFAULTS), JSON.parse(raw));
+    const edits = JSON.parse(localStorage.getItem(MM_KEY)) || {};
+    for (const [key, path] of Object.entries(MM_EDITABLE)) {
+      if (edits[key] !== undefined) mmSet(data, path, edits[key]);
+    }
   } catch {
-    return structuredClone(MM_DEFAULTS);
+    // no edits, or unreadable: plain data.js
   }
+  return data;
 }
 
 function mmSave(data) {
-  localStorage.setItem(MM_KEY, JSON.stringify(data));
+  const edits = {};
+  for (const [key, path] of Object.entries(MM_EDITABLE)) edits[key] = mmGet(data, path);
+  localStorage.setItem(MM_KEY, JSON.stringify(edits));
 }
 
 function mmReset() {
   localStorage.removeItem(MM_KEY);
+}
+
+// Just enough to draw the menu, nav and footer if data.js can't be used
+const MM_FALLBACK_SITE = {
+  name: "mary mehan",
+  email: "hello@marymehan.com",
+  menuFoot: "mary mehan",
+  nav: [
+    { id: "home", label: "Home", href: "index.html", icon: "home" },
+    { id: "projects", label: "Projects", href: "projects.html", icon: "heart" },
+    { id: "resume", label: "Resume", href: "resume.html", icon: "person" },
+    { id: "store", label: "Store", href: "store/index.html", icon: "bag" },
+  ],
+  footer: { copyright: "© Mary Mehan. All rights reserved.", note: "" },
+};
+
+const MM_LOAD_TIMEOUT = 10000;
+
+// Fill any missing chrome fields from the fallback so the menu and footer always work
+function mmWithDefaults(content) {
+  if (!content || typeof content !== "object") throw new Error("window.MM_DATA is not an object");
+  const site = content.site || {};
+  content.site = {
+    ...MM_FALLBACK_SITE,
+    ...site,
+    nav: Array.isArray(site.nav) && site.nav.length ? site.nav : MM_FALLBACK_SITE.nav,
+    footer: { ...MM_FALLBACK_SITE.footer, ...site.footer },
+  };
+  return content;
+}
+
+const mmDomReady = new Promise((resolve) =>
+  document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", resolve) : resolve()
+);
+
+// Load data.js with a plain <script> element (allowed even on file:// pages).
+// Resolves with window.MM_DATA; rejects if it 404s, has a syntax error, or times out.
+const mmContent = Promise.race([
+  new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = MM_DATA_URL;
+    script.onload = () =>
+      window.MM_DATA
+        ? resolve(window.MM_DATA)
+        : reject(new Error("data.js loaded but didn't set window.MM_DATA (syntax error?)"));
+    script.onerror = () => reject(new Error("couldn't load " + MM_DATA_URL));
+    document.head.appendChild(script);
+  }),
+  new Promise((_, reject) =>
+    setTimeout(() => reject(new Error(`timed out after ${MM_LOAD_TIMEOUT / 1000}s`)), MM_LOAD_TIMEOUT)
+  ),
+]).then(mmWithDefaults);
+
+// Resolves with the content once data.js is loaded, the DOM is ready, and
+// the shared chrome is built. If data.js can't be loaded, the chrome is built
+// from MM_FALLBACK_SITE, an error notice is shown, and this rejects.
+// Page scripts should use mmPage() rather than this directly.
+const mmReady = Promise.all([mmContent, mmDomReady]).then(
+  ([content]) => {
+    MM_CONTENT = content;
+    const data = mmLoad();
+    buildChrome(data);
+    buildFooter(data);
+    return data;
+  },
+  async (err) => {
+    await mmDomReady;
+    console.error("Could not load data.js:", err);
+    const fallback = { site: MM_FALLBACK_SITE };
+    buildChrome(fallback);
+    buildFooter(fallback);
+    mmContentError();
+    throw err;
+  }
+);
+mmReady.catch(() => {}); // reported above
+
+// Run a page's render code once content is ready. If data.js failed to load,
+// it doesn't run; if it throws (e.g. a section is missing), the error notice replaces the page.
+function mmPage(render) {
+  return mmReady.then(
+    (data) => {
+      try {
+        render(data);
+      } catch (err) {
+        console.error("Could not render this page from data.js:", err);
+        mmContentError();
+      }
+    },
+    () => {} // already reported by mmReady
+  );
+}
+
+// Swap the page's own content for a short notice; the menu, nav and footer stay
+function mmContentError() {
+  if (document.querySelector(".load-error")) return;
+  const notice = document.createElement("section");
+  notice.className = "load-error";
+  notice.setAttribute("role", "alert");
+  notice.innerHTML = `
+    <div class="wrap">
+      <h1>Content unavailable</h1>
+      <p>This page couldn't load its content. Check your connection and try again.</p>
+      <button class="btn ghost" type="button">Try again</button>
+    </div>`;
+  notice.querySelector("button").addEventListener("click", () => location.reload());
+  const top = document.querySelector(".topbar");
+  top ? top.after(notice) : document.body.prepend(notice);
+  document.body.classList.add("content-failed");
 }
 
 /* ---------- icons (stroke-based line icons) ---------- */
@@ -58,18 +172,14 @@ const MM_ICONS = {
   clock: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3.5 2"/></svg>',
 };
 
-/* ---------- shared chrome: top bar, bottom nav, overlay menu ----------
-   Each page sets <body data-page="home|projects|resume|control">. */
+/* ---------- shared chrome: top bar, bottom nav, overlay menu, footer ----------
+   Each page sets <body data-page="home|projects|resume|store|control">.
+   Pages in a subfolder also set data-root="../" so links resolve. */
 
-const MM_PAGES = [
-  { id: "home", label: "Home", href: "index.html", icon: "home" },
-  { id: "projects", label: "Projects", href: "projects.html", icon: "heart" },
-  { id: "resume", label: "Resume", href: "resume.html", icon: "person" },
-  { id: "control", label: "Control", href: "control.html", icon: "clock" },
-];
-
-function buildChrome() {
+function buildChrome(data) {
   const page = document.body.dataset.page || "home";
+  const root = document.body.dataset.root || "";
+  const site = data.site;
 
   // top bar
   const top = document.createElement("header");
@@ -77,23 +187,24 @@ function buildChrome() {
   top.innerHTML = `
     <div class="left">
       <button class="icon-btn" id="menu-open" aria-label="Menu">${MM_ICONS.menu}</button>
-      <a class="brand" href="index.html">mary mehan</a>
+      <a class="brand" href="${root}index.html"></a>
     </div>
     <div class="right">
-      <a class="icon-btn" href="projects.html" aria-label="Projects">${MM_ICONS.heart}</a>
-      <a class="icon-btn" href="projects.html" aria-label="Search">${MM_ICONS.search}</a>
-      <a class="icon-btn" id="mail-btn" href="#" aria-label="Contact">${MM_ICONS.bag}</a>
+      <a class="icon-btn" href="${root}projects.html" aria-label="Projects">${MM_ICONS.heart}</a>
+      <a class="icon-btn" href="${root}projects.html" aria-label="Search">${MM_ICONS.search}</a>
+      <a class="icon-btn" id="mail-btn" href="mailto:${site.email}" aria-label="Contact">${MM_ICONS.bag}</a>
     </div>`;
+  top.querySelector(".brand").textContent = site.name;
   document.body.prepend(top);
 
-  // bottom nav: menu button + the four pages
+  // bottom nav: one icon per page
   const nav = document.createElement("nav");
   nav.className = "bottomnav";
   nav.setAttribute("aria-label", "Primary");
   nav.innerHTML =
-    MM_PAGES.map(
+    site.nav.map(
       (p) =>
-        `<a href="${p.href}" class="${p.id === page ? "active" : ""}" aria-label="${p.label}">${MM_ICONS[p.icon]}</a>`
+        `<a href="${root}${p.href}" class="${p.id === page ? "active" : ""}" aria-label="${p.label}">${MM_ICONS[p.icon] || MM_ICONS.home}</a>`
     ).join("");
   document.body.appendChild(nav);
 
@@ -103,11 +214,13 @@ function buildChrome() {
   overlay.innerHTML = `
     <button class="menu-close" aria-label="Close menu">&times;</button>
     <nav>
-      ${MM_PAGES.map(
-        (p) => `<a href="${p.href}" class="${p.id === page ? "active" : ""}">${p.label}</a>`
+      ${site.nav.map(
+        (p) => `<a href="${root}${p.href}" class="${p.id === page ? "active" : ""}">${p.label}</a>`
       ).join("")}
     </nav>
-    <div class="menu-foot">mary mehan — portfolio 2026<br /><span id="menu-email"></span></div>`;
+    <div class="menu-foot"><span id="menu-foot-text"></span><br /><span id="menu-email"></span></div>`;
+  overlay.querySelector("#menu-foot-text").textContent = site.menuFoot;
+  overlay.querySelector("#menu-email").textContent = site.email;
   document.body.appendChild(overlay);
 
   document.getElementById("menu-open").addEventListener("click", () => overlay.classList.add("open"));
@@ -119,13 +232,30 @@ function buildChrome() {
   // top bar turns solid once you scroll past the hero-ish zone
   addEventListener("scroll", () => top.classList.toggle("solid", scrollY > 40), { passive: true });
   if (scrollY > 40) top.classList.add("solid");
+}
 
-  // contact icon → mailto (email comes from stored content)
-  const data = mmLoad();
-  const mail = document.getElementById("mail-btn");
-  mail.href = "mailto:" + data.email;
-  const menuEmail = document.getElementById("menu-email");
-  if (menuEmail) menuEmail.textContent = data.email;
+// Fills an empty <footer class="site-footer"></footer>; pages with their own footer keep it
+function buildFooter(data) {
+  const footer = document.querySelector(".site-footer");
+  if (!footer || footer.children.length) return;
+  const root = document.body.dataset.root || "";
+  const site = data.site;
+  footer.innerHTML = `
+    <div class="wrap">
+      <div class="foot-brand"></div>
+      <div class="foot-links">
+        ${site.nav.map((p) => `<a href="${root}${p.href}">${p.label}</a>`).join("")}
+      </div>
+      <div class="foot-fine">
+        <span class="foot-email"></span><br />
+        <span class="foot-copy"></span><br />
+        <span class="foot-note"></span>
+      </div>
+    </div>`;
+  footer.querySelector(".foot-brand").textContent = site.name;
+  footer.querySelector(".foot-email").textContent = site.email;
+  footer.querySelector(".foot-copy").textContent = site.footer.copyright;
+  footer.querySelector(".foot-note").textContent = site.footer.note;
 }
 
 /* ---------- project card rendering ---------- */
@@ -153,12 +283,46 @@ function renderRow(el, projects) {
 
 /* ---------- hero carousel ---------- */
 
+// Slides from data: { title: [lines], sub?: [lines], image?, position?, dim?, art?, mark? }
+function renderHero(el, slides) {
+  const track = el.querySelector(".hero-track");
+  track.innerHTML = "";
+  slides.forEach((s) => {
+    const slide = document.createElement("div");
+    slide.className = "hero-slide";
+
+    const art = document.createElement("div");
+    art.className = "slide-art " + (s.image ? "art-photo" + (s.dim ? " dim" : "") : s.art || "art-1");
+    if (s.image) art.style.backgroundImage = `url('${s.image}')`;
+    if (s.position) art.style.backgroundPosition = s.position;
+    if (s.mark) art.dataset.mark = s.mark;
+
+    const caption = document.createElement("div");
+    caption.className = "slide-caption";
+    const lines = (cls, text) => {
+      const d = document.createElement("div");
+      d.className = cls;
+      [].concat(text).forEach((line, i) => {
+        if (i) d.appendChild(document.createElement("br"));
+        d.appendChild(document.createTextNode(line));
+      });
+      caption.appendChild(d);
+    };
+    lines("slide-title", s.title);
+    if (s.sub) lines("slide-sub", s.sub);
+
+    slide.append(art, caption);
+    track.appendChild(slide);
+  });
+}
+
 function initHero() {
   const hero = document.querySelector(".hero");
   if (!hero) return;
   const track = hero.querySelector(".hero-track");
   const slides = hero.querySelectorAll(".hero-slide");
   const barsBox = hero.querySelector(".hero-progress");
+  if (slides.length < 2) return; // single banner: no arrows, bars, or autoplay
   let idx = 0;
   let timer;
 
@@ -201,8 +365,3 @@ function initHero() {
   go(0);
   restart();
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  buildChrome();
-  initHero();
-});
