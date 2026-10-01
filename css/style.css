@@ -57,7 +57,7 @@ svg { display: block; }
   font-size: 21px;
   font-weight: 500;
   letter-spacing: 0.02em;
-  text-transform: lowercase;
+  text-transform: none;
 }
 .topbar .right { display: flex; align-items: center; gap: 22px; }
 .icon-btn {
@@ -652,7 +652,7 @@ svg { display: block; }
 .foot-brand {
   font-size: 19px;
   font-weight: 500;
-  text-transform: lowercase;
+  text-transform: none;
   letter-spacing: 0.02em;
   margin-bottom: 18px;
 }
