@@ -5,7 +5,7 @@
 
 window.MM_DATA = {
   "site": {
-    "name": "mary mehan",
+    "name": "Mary Adele Mehan",
     "tagline": "The One and Only!",
     "email": "hi@marymehan.com",
     "location": "New York, NY",
