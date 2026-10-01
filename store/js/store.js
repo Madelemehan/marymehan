@@ -1,4 +1,4 @@
-/* MARY MEHAN — store
+/* MARY ADELE MEHAN — store
    Shared store code: catalog lookups, cart, wishlist, top bar, and markup.
    Plain script (not a module) so the store also works opened straight from disk.
    Load after ../js/main.js; each page script then calls storePage(render). */

@@ -5,7 +5,7 @@ storePage(({ categories, products: allProducts }) => {
   const products = categoryId ? getProductsByCategory(categoryId) : allProducts;
 
   // Page title
-  document.title = category ? `${category.name} — mary mehan store` : 'All products — mary mehan store';
+  document.title = category ? `${category.name} — Mary Adele Mehan store` : 'All products — Mary Adele Mehan store';
 
   const heading = document.getElementById('category-heading');
   const subheading = document.getElementById('category-subheading');

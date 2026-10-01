@@ -8,7 +8,7 @@ storePage(({ products }) => {
   const input = document.getElementById('search-input');
   const grid = document.getElementById('products-grid');
 
-  document.title = query ? `"${query}" — mary mehan store` : 'Search — mary mehan store';
+  document.title = query ? `"${query}" — Mary Adele Mehan store` : 'Search — Mary Adele Mehan store';
   input.value = query;
 
   if (!query) {
