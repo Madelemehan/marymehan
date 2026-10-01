@@ -6,8 +6,8 @@
 window.MM_DATA = {
   "site": {
     "name": "mary mehan",
-    "tagline": "Design · Strategy · Direction",
-    "email": "hello@marymehan.com",
+    "tagline": "The One and Only!",
+    "email": "hi@marymehan.com",
     "location": "New York, NY",
     "menuFoot": "mary mehan — portfolio 2026",
     "nav": [
