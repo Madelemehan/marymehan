@@ -6,7 +6,7 @@ storePage(() => {
   if (!product) {
     container.innerHTML = emptyState('Product not found', 'It may have sold out or moved.', 'Back to the store');
   } else {
-    document.title = `${product.name} — Mary Adele Mehan store`;
+    document.title = storeTitle(product.name);
 
     const category = getCategoryById(product.category);
     const discount = product.originalPrice

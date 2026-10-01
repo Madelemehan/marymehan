@@ -43,7 +43,7 @@ window.MM_DATA = {
       }
     ],
     "footer": {
-      "copyright": "© 2026 Mary Mehan. All rights reserved.",
+      "copyright": "© 2026 Mary Adele Mehan. All rights reserved.",
       "note": "Built with intent. No cookies, no tracking."
     }
   },
@@ -209,6 +209,66 @@ window.MM_DATA = {
     }
   },
   "store": {
+    "pageTitle": "{page} — {name} store",
+    "pages": {
+      "home": {
+        "fullTitle": "Store — {name}",
+        "description": "Original works, limited-edition prints, photography, and printed matter by {name}.",
+        "hero": {
+          "title": [
+            "Work You",
+            "Can Keep"
+          ],
+          "mark": "MM",
+          "ctas": [
+            {
+              "label": "All work",
+              "href": "category.html"
+            },
+            {
+              "label": "Shop prints",
+              "href": "category.html?category=prints",
+              "ghost": true
+            }
+          ]
+        },
+        "categoriesHeading": "Shop by Category",
+        "featuredHeading": "New Arrivals",
+        "featuredMore": {
+          "label": "Shop all",
+          "href": "category.html"
+        }
+      },
+      "category": {
+        "title": "Shop",
+        "allHeading": "All products",
+        "allSub": "The full collection"
+      },
+      "product": {
+        "title": "Product"
+      },
+      "search": {
+        "heading": "Search",
+        "sub": "Find something in the store.",
+        "placeholder": "Search products…",
+        "button": "Search"
+      },
+      "cart": {
+        "heading": "Cart"
+      },
+      "checkout": {
+        "heading": "Checkout",
+        "sub": "Review your order and pay securely with PayPal."
+      },
+      "thankyou": {
+        "title": "Order confirmed",
+        "heading": "Thank You",
+        "sub": "Order confirmed. A confirmation is on its way to your email."
+      }
+    },
+    "footer": {
+      "note": "Payments secured by PayPal. We never store your payment details."
+    },
     "taglines": [
       "Work that holds its shape.",
       "Made slowly, meant to stay.",

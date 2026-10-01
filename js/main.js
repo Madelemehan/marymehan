@@ -52,16 +52,16 @@ function mmReset() {
 
 // Just enough to draw the menu, nav and footer if data.js can't be used
 const MM_FALLBACK_SITE = {
-  name: "mary mehan",
-  email: "hello@marymehan.com",
-  menuFoot: "mary mehan",
+  name: "Mary Adele Mehan",
+  email: "hi@marymehan.com",
+  menuFoot: "Mary Adele Mehan",
   nav: [
     { id: "home", label: "Home", href: "index.html", icon: "home" },
     { id: "projects", label: "Projects", href: "projects.html", icon: "heart" },
     { id: "resume", label: "Resume", href: "resume.html", icon: "person" },
     { id: "store", label: "Store", href: "store/index.html", icon: "bag" },
   ],
-  footer: { copyright: "© Mary Mehan. All rights reserved.", note: "" },
+  footer: { copyright: "© Mary Adele Mehan. All rights reserved.", note: "" },
 };
 
 const MM_LOAD_TIMEOUT = 10000;
@@ -234,18 +234,27 @@ function buildChrome(data) {
   if (scrollY > 40) top.classList.add("solid");
 }
 
-// Fills an empty <footer class="site-footer"></footer>; pages with their own footer keep it
+// Fills an empty <footer class="site-footer"></footer>; pages with their own footer keep it.
+// A section can add a row of links above the site nav and its own note by defining
+// mmFooterExtra(data) => { links: [{ label, href }], note } (the store does).
 function buildFooter(data) {
   const footer = document.querySelector(".site-footer");
   if (!footer || footer.children.length) return;
   const root = document.body.dataset.root || "";
   const site = data.site;
+  let extra = null;
+  try {
+    extra = typeof mmFooterExtra === "function" ? mmFooterExtra(data) : null;
+  } catch (err) {
+    console.error("mmFooterExtra failed:", err);
+  }
+  const row = (links, prefix) =>
+    `<div class="foot-links">${links.map((p) => `<a href="${prefix}${p.href}">${p.label}</a>`).join("")}</div>`;
   footer.innerHTML = `
     <div class="wrap">
       <div class="foot-brand"></div>
-      <div class="foot-links">
-        ${site.nav.map((p) => `<a href="${root}${p.href}">${p.label}</a>`).join("")}
-      </div>
+      ${extra?.links?.length ? row(extra.links, "") : ""}
+      ${row(site.nav, root)}
       <div class="foot-fine">
         <span class="foot-email"></span><br />
         <span class="foot-copy"></span><br />
@@ -255,7 +264,7 @@ function buildFooter(data) {
   footer.querySelector(".foot-brand").textContent = site.name;
   footer.querySelector(".foot-email").textContent = site.email;
   footer.querySelector(".foot-copy").textContent = site.footer.copyright;
-  footer.querySelector(".foot-note").textContent = site.footer.note;
+  footer.querySelector(".foot-note").textContent = extra?.note ?? site.footer.note;
 }
 
 /* ---------- project card rendering ---------- */

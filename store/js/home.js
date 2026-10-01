@@ -1,4 +1,19 @@
 storePage(({ categories, taglines }) => {
+  // Hero (data.js → store.pages.home.hero)
+  const hero = storePageText().hero;
+  if (hero) {
+    document.querySelector('.hero .slide-art').dataset.mark = hero.mark || '';
+    const title = document.querySelector('.hero .slide-title');
+    title.textContent = '';
+    hero.title.forEach((line, i) => {
+      if (i) title.appendChild(document.createElement('br'));
+      title.appendChild(document.createTextNode(storeFill(line)));
+    });
+    document.querySelector('.hero-ctas').innerHTML = (hero.ctas || []).map(c =>
+      `<a class="btn${c.ghost ? ' ghost' : ''}" href="${c.href}">${esc(storeFill(c.label))}</a>`
+    ).join('');
+  }
+
   // Rotating tagline
   const taglineEl = document.getElementById('rotating-tagline');
   if (taglineEl) {

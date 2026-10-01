@@ -5,14 +5,15 @@ storePage(({ categories, products: allProducts }) => {
   const products = categoryId ? getProductsByCategory(categoryId) : allProducts;
 
   // Page title
-  document.title = category ? `${category.name} — Mary Adele Mehan store` : 'All products — Mary Adele Mehan store';
+  const text = storePageText();
+  document.title = storeTitle(category ? category.name : text.allHeading);
 
   const heading = document.getElementById('category-heading');
   const subheading = document.getElementById('category-subheading');
-  if (heading) heading.textContent = category ? category.name : 'All products';
+  if (heading) heading.textContent = category ? category.name : text.allHeading;
   if (subheading) {
     const count = `${products.length} piece${products.length === 1 ? '' : 's'}`;
-    subheading.textContent = category ? `${category.description} · ${count}` : `The full collection · ${count}`;
+    subheading.textContent = `${category ? category.description : text.allSub} · ${count}`;
   }
 
   // Category chips

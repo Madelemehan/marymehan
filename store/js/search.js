@@ -8,12 +8,11 @@ storePage(({ products }) => {
   const input = document.getElementById('search-input');
   const grid = document.getElementById('products-grid');
 
-  document.title = query ? `"${query}" — Mary Adele Mehan store` : 'Search — Mary Adele Mehan store';
+  if (query) document.title = storeTitle(`"${query}"`);
   input.value = query;
 
   if (!query) {
-    heading.textContent = 'Search';
-    subheading.textContent = 'Find something in the store.';
+    // heading and subheading come from data.js (store.pages.search)
     input.focus();
   } else {
     const results = products.filter(p =>

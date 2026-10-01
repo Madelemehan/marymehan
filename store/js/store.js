@@ -5,18 +5,78 @@
 
 /* ---------- catalog (from data.js → "store") ---------- */
 
-let STORE = { taglines: [], categories: [], products: [] };
+let STORE = { taglines: [], categories: [], products: [], pages: {} };
+let STORE_SITE_NAME = '';
 
 // Like main.js's mmPage(), for store pages: once data.js loads, wire the
-// top bar and run render(store, data). A missing "store" section shows the
-// error notice instead of an empty shop.
+// top bar, fill this page's titles and headings, and run render(store, data).
+// A missing "store" section shows the error notice instead of an empty shop.
 function storePage(render) {
   mmPage((data) => {
     if (!data.store) throw new Error('data.js has no "store" section');
-    STORE = { taglines: [], categories: [], products: [], ...data.store };
+    STORE = { taglines: [], categories: [], products: [], pages: {}, ...data.store };
+    STORE_SITE_NAME = data.site.name;
     wireTopbar(data);
+    fillStorePage();
     render(STORE, data);
   });
+}
+
+/* ---------- page text (from data.js → store.pages[<body data-store-page>]) ---------- */
+
+function storePageText() {
+  return STORE.pages[document.body.dataset.storePage] || {};
+}
+
+// "{name}" in store text is the site name
+function storeFill(text) {
+  return String(text).replaceAll('{name}', STORE_SITE_NAME);
+}
+
+// Tab title for a store page, e.g. storeTitle('Prints') → "Prints — Mary Adele Mehan store"
+function storeTitle(page) {
+  return storeFill((STORE.pageTitle || '{page}').replaceAll('{page}', page));
+}
+
+// Fill [data-store-text], [data-store-href], [data-store-placeholder] from this
+// page's entry; values are paths into it, e.g. data-store-text="featuredMore.label"
+function fillStorePage() {
+  const text = storePageText();
+  const get = path => path.split('.').reduce((o, k) => o?.[k], text);
+  const fill = (attr, apply) => document.querySelectorAll(`[${attr}]`).forEach(el => {
+    const value = get(el.getAttribute(attr));
+    if (value !== undefined) apply(el, storeFill(value));
+  });
+  fill('data-store-text', (el, v) => { el.textContent = v; });
+  fill('data-store-href', (el, v) => { el.href = v; });
+  fill('data-store-placeholder', (el, v) => { el.placeholder = v; el.setAttribute('aria-label', v); });
+
+  const title = text.fullTitle || text.title || text.heading;
+  if (title) document.title = text.fullTitle ? storeFill(text.fullTitle) : storeTitle(storeFill(title));
+  if (text.description) {
+    let meta = document.querySelector('meta[name="description"]');
+    if (!meta) {
+      meta = document.createElement('meta');
+      meta.name = 'description';
+      document.head.appendChild(meta);
+    }
+    meta.content = storeFill(text.description);
+  }
+}
+
+// Footer: a row of shop links above the site nav, and the store's note (see buildFooter in main.js)
+function mmFooterExtra(data) {
+  const store = data.store;
+  if (!store) return null;
+  const storeLabel = data.site.nav.find(p => p.id === 'store')?.label || 'Store';
+  return {
+    links: [
+      { label: storeLabel, href: 'index.html' },
+      ...(store.categories || []).map(c => ({ label: c.name, href: `category.html?category=${c.id}` })),
+      { label: store.pages?.cart?.heading || 'Cart', href: 'cart.html' },
+    ],
+    note: store.footer?.note,
+  };
 }
 
 function getProductById(id) {
@@ -151,9 +211,6 @@ function wireTopbar(data) {
         ${MM_ICONS.bag}<span class="cart-badge" id="cart-badge" hidden></span>
       </a>`;
   }
-
-  const footEmail = document.getElementById('foot-email');
-  if (footEmail) footEmail.textContent = data.site.email;
 
   updateCartBadge();
 }

@@ -37,7 +37,7 @@ Pages:
 | `home` | `index.html` | `title`, `hero` slides, `selectedWork`, `explore` tiles, `statement` |
 | `projects` | `projects.html`, home | `title`, `heading`, `allLabel`, `items` |
 | `resume` | `resume.html` | `title`, `heading`, `sub`, `sections` (items or tags), `contactHeading`, `actions` |
-| `store` | `store/` | `taglines`, `categories`, `products` |
+| `store` | `store/` | `pageTitle`, `pages` (per-page titles, headings, hero), `footer`, `taglines`, `categories`, `products` |
 
 Rules for editing it:
 
@@ -45,6 +45,7 @@ Rules for editing it:
 - **Hero slides:** `{ "title": ["line 1", "line 2"], "sub"?: [...], "image"?, "position"?, "dim"?, "art"?, "mark"? }`. Use `image` for a photo, or `art` (e.g. `"art-2"`) plus an optional `mark` watermark. Title lines are arrays; no HTML in data.
 - **Nav icons** must be keys of `MM_ICONS` in `js/main.js`: `home`, `heart`, `person`, `bag`, `clock`, `search`, `menu`, `back`.
 - **Products:** `id` (unique, used in URLs and carts), `name`, `category` (a `categories[].id`), `price`, optional `originalPrice`, `description`, `features`, `stock`, optional `badge`. Give each product either `image` (a path relative to the `store/` pages, e.g. `"../img/hero-4.jpg"`) or `tone` (`t-1`…`t-4`, `t-dark`) for a gradient placeholder.
+- **Store page text** lives in `store.pages.<id>`, where `<id>` is the page's `<body data-store-page>` (`home`, `category`, `product`, `search`, `cart`, `checkout`, `thankyou`). Elements marked `data-store-text="heading"` (or `data-store-href`, `data-store-placeholder`) are filled from that entry by `fillStorePage()`; dotted paths like `featuredMore.label` work. Tab titles use `store.pageTitle`. `{name}` in store text is replaced with `site.name`, so a rename is one edit (but `site.footer.copyright` is plain text and needs its own edit).
 - **Renaming or removing a product `id`** drops it from visitors' saved carts. That's handled safely, but it's a visible change.
 
 ## How pages load
@@ -69,7 +70,7 @@ Main-site globals are prefixed `mm`/`MM_`. Because everything shares one global 
 
 ## Store
 
-- `store/js/store.js`: catalog lookups (`getProductById`, …), cart, wishlist, top bar, shared markup (`productCard`, `renderProductGrid`, `emptyState`, `money`, `esc`), and `totals()` (shipping: free at $50+, otherwise $5.99).
+- `store/js/store.js`: `storePage`, page text (`fillStorePage`, `storeTitle`, `storeFill`), the footer's shop-links row (`mmFooterExtra`, used by `buildFooter` in `main.js`), catalog lookups (`getProductById`, …), cart, wishlist, top bar, shared markup (`productCard`, `renderProductGrid`, `emptyState`, `money`, `esc`), and `totals()` (shipping: free at $50+, otherwise $5.99).
 - `store/js/config.js`: `PAYPAL_CLIENT_ID`, loaded only on checkout. It's currently `'sb'` (PayPal sandbox), so **checkout doesn't take real payments** until the live client ID is put in.
 - Checkout uses the PayPal JS SDK, loaded on demand in `store/js/checkout.js`.
 - Escape anything from the URL or user input before putting it in `innerHTML` (use `esc()`); search does this.
