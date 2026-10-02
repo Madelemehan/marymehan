@@ -19,7 +19,7 @@ window.MM_DATA = {
       },
       {
         "id": "projects",
-        "label": "Projects",
+        "label": "Artwork",
         "href": "projects.html",
         "icon": "heart"
       },
@@ -65,7 +65,7 @@ window.MM_DATA = {
     ],
     "selectedWork": {
       "heading": "Selected Work",
-      "count": 5,
+      "count": 6,
       "more": {
         "label": "View all",
         "href": "projects.html"
@@ -88,7 +88,7 @@ window.MM_DATA = {
     },
     "statement": {
       "kicker": "About",
-      "text": "Work that holds its shape. Mary Mehan builds identities, interfaces, and stories with an editorial hand and an engineer's patience.",
+      "text": "Ink drawings about becoming, consent, and being seen \u2014 and what each one costs.",
       "cta": {
         "label": "Get in touch",
         "href": "resume.html"
@@ -96,59 +96,57 @@ window.MM_DATA = {
     }
   },
   "projects": {
-    "title": "Projects — mary mehan",
-    "heading": "Projects",
+    "title": "Artwork \u2014 mary mehan",
+    "heading": "Artwork",
     "allLabel": "All",
     "items": [
       {
-        "name": "Will We See a UFO in Our Lifetime?",
-        "cat": "Data Analytics",
-        "year": "2026",
-        "role": "Research & Analysis",
-        "tone": "t-dark",
-        "href": "https://docs.google.com/presentation/d/1fIoBhxzarME9IrqiJumE7O31YF--njdriZYRxvHLkfY/edit"
+        "name": "She Is Not an Exhibit",
+        "cat": "The Gaze",
+        "year": "2022",
+        "role": "Ink on paper",
+        "image": "img/art/exhibit.jpg",
+        "href": "store/product.html?id=exhibit-print"
       },
       {
-        "name": "Meridian Rebrand",
-        "cat": "Identity",
-        "year": "2026",
-        "role": "Creative Direction",
-        "tone": "t-1"
+        "name": "The Process of Becoming Feels Like Death",
+        "cat": "Becoming",
+        "year": "n.d.",
+        "role": "Ink on paper",
+        "image": "img/art/becoming-eye.jpg",
+        "href": "store/product.html?id=becoming-print"
       },
       {
-        "name": "Atlas Field Guide",
-        "cat": "Editorial",
-        "year": "2025",
-        "role": "Design & Layout",
-        "tone": "t-dark"
+        "name": "North Node in Taurus",
+        "cat": "Becoming",
+        "year": "2022",
+        "role": "Ink and wash on paper",
+        "image": "img/art/north-node.jpg",
+        "href": "store/product.html?id=northnode-print"
       },
       {
-        "name": "Norr Commerce",
-        "cat": "Digital",
-        "year": "2025",
-        "role": "UX / UI",
-        "tone": "t-2"
+        "name": "Horse and Rider",
+        "cat": "Myth & Figure",
+        "year": "n.d.",
+        "role": "Ink on paper",
+        "image": "img/art/horse.jpg",
+        "href": "store/product.html?id=horse-print"
       },
       {
-        "name": "Hollow Light",
-        "cat": "Photography",
-        "year": "2024",
-        "role": "Art Direction",
-        "tone": "t-3"
+        "name": "Angel in the Heart",
+        "cat": "Myth & Figure",
+        "year": "2022",
+        "role": "Ink on paper",
+        "image": "img/art/angel-heart.jpg",
+        "href": "store/product.html?id=angel-print"
       },
       {
-        "name": "Civic Type System",
-        "cat": "Identity",
-        "year": "2024",
-        "role": "Type Design",
-        "tone": "t-4"
-      },
-      {
-        "name": "Paper Weather",
-        "cat": "Editorial",
-        "year": "2023",
-        "role": "Concept & Design",
-        "tone": "t-dark"
+        "name": "Figure Study",
+        "cat": "Myth & Figure",
+        "year": "n.d.",
+        "role": "Ink on paper",
+        "image": "img/art/figure-study.jpg",
+        "href": "store/product.html?id=figure-print"
       }
     ]
   },
@@ -303,7 +301,7 @@ window.MM_DATA = {
     "pages": {
       "home": {
         "fullTitle": "Store — {name}",
-        "description": "Original works, limited-edition prints, photography, and printed matter by {name}.",
+        "description": "Signed limited-edition prints by {name}. Commissions by appointment or request \u2014 write to hello@marymehan.com.",
         "hero": {
           "title": [
             "Work You",
@@ -371,173 +369,102 @@ window.MM_DATA = {
     ],
     "categories": [
       {
-        "id": "originals",
-        "name": "Originals",
-        "description": "One-of-one paintings, drawings, and collage"
-      },
-      {
         "id": "prints",
         "name": "Prints",
-        "description": "Limited-edition risograph and giclée prints"
-      },
-      {
-        "id": "photography",
-        "name": "Photography",
-        "description": "Archival pigment prints, signed and numbered"
-      },
-      {
-        "id": "editions",
-        "name": "Editions",
-        "description": "Zines, posters, and printed matter"
+        "description": "Signed limited-edition prints"
       }
     ],
     "products": [
       {
-        "id": "o1",
-        "name": "Quiet Interval No. 3",
-        "category": "originals",
-        "price": 2400.0,
-        "description": "Layered fields of warm gray and bone, built up over months. A study in how little a surface needs to hold a room.",
-        "features": [
-          "Acrylic on stretched canvas",
-          "30 × 40 in",
-          "Signed and dated on verso",
-          "Ready to hang, unframed",
-          "Certificate of authenticity"
-        ],
-        "tone": "t-1",
-        "stock": 1,
-        "badge": "One of One"
-      },
-      {
-        "id": "o2",
-        "name": "Field Study (Graphite)",
-        "category": "originals",
-        "price": 950.0,
-        "description": "A dense graphite drawing made on location over a single afternoon, all contour and shadow.",
-        "features": [
-          "Graphite on cotton rag paper",
-          "18 × 24 in",
-          "Signed lower right",
-          "Ships flat, archival sleeve",
-          "Certificate of authenticity"
-        ],
-        "tone": "t-3",
-        "stock": 1
-      },
-      {
-        "id": "o3",
-        "name": "Margin Notes",
-        "category": "originals",
-        "price": 1200.0,
-        "description": "Collage built from proof sheets, offcuts, and annotated drafts from the Atlas Field Guide.",
-        "features": [
-          "Mixed media collage on board",
-          "16 × 20 in",
-          "Signed on verso",
-          "Framed in natural oak",
-          "Certificate of authenticity"
-        ],
-        "tone": "t-dark",
-        "stock": 1
-      },
-      {
-        "id": "p1",
-        "name": "Meridian Type Specimen",
+        "id": "exhibit-print",
+        "name": "She Is Not an Exhibit \u2014 Print",
         "category": "prints",
-        "price": 65.0,
-        "description": "The full Meridian alphabet set as a two-color risograph print. Each sheet varies slightly in registration.",
+        "price": 150.0,
+        "description": "The piece that sets the terms: she is not an exhibit. A signed limited-edition print of the original ink drawing.",
         "features": [
-          "Two-color risograph",
-          "11 × 17 in",
-          "Edition of 100",
-          "Signed and numbered",
-          "Ships rolled in a tube"
+          "Signed, limited edition of 25",
+          "Archival gicl\u00e9e print",
+          "Fits a 13 \u00d7 19 in frame",
+          "Ships flat"
         ],
-        "tone": "t-2",
-        "stock": 64,
+        "image": "../img/art/exhibit.jpg",
+        "stock": 25,
         "badge": "New"
       },
       {
-        "id": "p2",
-        "name": "Atlas Contour Map",
+        "id": "becoming-print",
+        "name": "The Process of Becoming Feels Like Death \u2014 Print",
         "category": "prints",
-        "price": 140.0,
-        "originalPrice": 180.0,
-        "description": "Topographic linework from the Atlas Field Guide, enlarged and printed on heavyweight matte stock.",
+        "price": 150.0,
+        "description": "One eye, wide open, and the sentence underneath it. A signed limited-edition print of the original ink drawing.",
         "features": [
-          "Giclée on 310gsm cotton rag",
-          "18 × 24 in",
-          "Edition of 50",
-          "Signed and numbered",
-          "Ships rolled in a tube"
+          "Signed, limited edition of 25",
+          "Archival gicl\u00e9e print",
+          "Fits a 13 \u00d7 19 in frame",
+          "Ships flat"
         ],
-        "tone": "t-4",
-        "stock": 8,
-        "badge": "Sale"
+        "image": "../img/art/becoming-eye.jpg",
+        "stock": 25
       },
       {
-        "id": "ph1",
-        "name": "Off the Clock",
-        "category": "photography",
-        "price": 380.0,
-        "description": "A fireplace, late in the evening. Shot on a quiet night away from the studio and printed in deep, soft blacks.",
+        "id": "northnode-print",
+        "name": "North Node in Taurus \u2014 Print",
+        "category": "prints",
+        "price": 150.0,
+        "description": "A dream in ink wash: stars, a crescent moon, a figure adrift. Marked with the north node in Taurus. A signed limited-edition print.",
         "features": [
-          "Archival pigment print",
-          "16 × 20 in",
-          "Edition of 25",
-          "Signed and numbered on verso",
-          "Ships flat, unframed"
+          "Signed, limited edition of 25",
+          "Archival gicl\u00e9e print",
+          "Fits a 13 \u00d7 19 in frame",
+          "Ships flat"
         ],
-        "image": "../img/hero-4.jpg",
-        "stock": 19,
-        "badge": "Best Seller"
+        "image": "../img/art/north-node.jpg",
+        "stock": 25
       },
       {
-        "id": "ph2",
-        "name": "Hollow Light I",
-        "category": "photography",
-        "price": 420.0,
-        "description": "The first frame from the Hollow Light series: an empty room, one window, an hour before dark.",
+        "id": "horse-print",
+        "name": "Horse and Rider \u2014 Print",
+        "category": "prints",
+        "price": 150.0,
+        "description": "A rider on a rearing horse, drawn fast in blue ink. A signed limited-edition print.",
         "features": [
-          "Archival pigment print",
-          "20 × 24 in",
-          "Edition of 15",
-          "Signed and numbered on verso",
-          "Ships flat, unframed"
+          "Signed, limited edition of 25",
+          "Archival gicl\u00e9e print",
+          "Fits a 13 \u00d7 19 in frame",
+          "Ships flat"
         ],
-        "tone": "t-3",
-        "stock": 6
+        "image": "../img/art/horse.jpg",
+        "stock": 25
       },
       {
-        "id": "e1",
-        "name": "Paper Weather, Issue 04",
-        "category": "editions",
-        "price": 28.0,
-        "description": "The fourth issue of the quarterly journal: essays, field notes, and type experiments, 72 pages.",
+        "id": "angel-print",
+        "name": "Angel in the Heart \u2014 Print",
+        "category": "prints",
+        "price": 150.0,
+        "description": "An angel seated inside a hand-drawn heart. A signed limited-edition print of the original ink drawing.",
         "features": [
-          "72 pages, perfect bound",
-          "6 × 9 in",
-          "Offset printed",
-          "Run of 500"
+          "Signed, limited edition of 25",
+          "Archival gicl\u00e9e print",
+          "Fits a 13 \u00d7 19 in frame",
+          "Ships flat"
         ],
-        "tone": "t-dark",
-        "stock": 140
+        "image": "../img/art/angel-heart.jpg",
+        "stock": 25
       },
       {
-        "id": "e2",
-        "name": "Civic Type Poster Set",
-        "category": "editions",
-        "price": 90.0,
-        "description": "Three posters from the Civic Type System, printed as a set and wrapped in a folded paper band.",
+        "id": "figure-print",
+        "name": "Figure Study \u2014 Print",
+        "category": "prints",
+        "price": 150.0,
+        "description": "A figure study in purple ink, worked over geometric construction lines. A signed limited-edition print.",
         "features": [
-          "Set of three posters",
-          "12 × 18 in each",
-          "Offset on uncoated stock",
-          "Ships rolled in a tube"
+          "Signed, limited edition of 25",
+          "Archival gicl\u00e9e print",
+          "Fits a 13 \u00d7 19 in frame",
+          "Ships flat"
         ],
-        "tone": "t-1",
-        "stock": 35
+        "image": "../img/art/figure-study.jpg",
+        "stock": 25
       }
     ]
   }
