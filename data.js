@@ -153,64 +153,151 @@ window.MM_DATA = {
     ]
   },
   "resume": {
-    "title": "Resume — mary mehan",
-    "heading": "Resume",
-    "sub": "Experience · Education · Skills",
-    "sections": [
-      {
-        "heading": "Experience",
-        "items": [
-          {
-            "when": "2023 — Now",
-            "title": "Senior Designer",
-            "org": "Studio Meridian — New York",
-            "text": "Lead designer on brand and digital engagements. Directed the Meridian rebrand across print, packaging, and web; managed a team of three designers."
-          },
-          {
-            "when": "2020 — 2023",
-            "title": "Designer",
-            "org": "Norr & Co — Brooklyn",
-            "text": "Designed e-commerce experiences and editorial systems for retail and publishing clients. Shipped Norr Commerce, a full storefront redesign."
-          },
-          {
-            "when": "2018 — 2020",
-            "title": "Junior Designer",
-            "org": "Paper Weather Press",
-            "text": "Production and layout for a quarterly print journal; built the studio's first type specimen library."
-          }
-        ]
-      },
-      {
-        "heading": "Education",
-        "items": [
-          {
-            "when": "2014 — 2018",
-            "title": "BFA, Graphic Design",
-            "org": "Rhode Island School of Design"
-          }
-        ]
-      },
-      {
-        "heading": "Skills",
-        "tags": [
-          "Brand Identity",
-          "Editorial Design",
-          "Art Direction",
-          "Typography",
-          "UX / UI",
-          "Figma",
-          "Adobe CC",
-          "HTML / CSS",
-          "Print Production"
-        ]
-      }
-    ],
-    "contactHeading": "Contact",
-    "actions": {
-      "email": "Email me",
-      "print": "Print / PDF"
+  "title": "Resume — Mary Adele Mehan",
+  "heading": "Resume",
+  "sub": "Experience · Education · Skills",
+  "sections": [
+    {
+      "heading": "Summary",
+      "items": [
+        {
+          "title": "Professional Summary",
+          "text": "Clinical and research professional with a background in psychology, pre-medical science, osteopathic medical education, biomedical research, and clinical documentation. Experienced supporting clinical teams, conducting laboratory research, collecting and evaluating research data, reviewing scientific literature, and communicating effectively with patients, students, faculty, and multidisciplinary teams. Strong attention to detail, scientific curiosity, organization, and interpersonal communication, with current training in data analytics and data literacy."
+        }
+      ]
+    },
+    {
+      "heading": "Research & Clinical Experience",
+      "items": [
+        {
+          "title": "Research Intern",
+          "org": "Oregon Health & Sciences University — Portland, OR",
+          "text": "Conducted biomedical research investigating aromatase expression in altered brains of diabetic mice at baseline and following ischemia. Performed protein and RNA isolation, Western blotting, and quantitative PCR procedures. Organized and analyzed experimental findings and presented research data using PowerPoint. Participated in journal club and critically evaluated scientific literature relevant to the research project. Worked within a laboratory research environment requiring careful adherence to experimental procedures, documentation, and scientific protocols."
+        },
+        {
+          "title": "Research Assistant — Achieve My Plan",
+          "org": "PSU Regional Research Institute — Portland, OR",
+          "text": "Administered youth program evaluations and collected research data. Participated in bi-weekly evaluation meetings focused on assessing program effectiveness. Contributed to critical analysis and interpretation of evaluation findings. Communicated research observations and findings with members of the research team."
+        },
+        {
+          "title": "Research Assistant",
+          "org": "PSU Daily Process Research Lab — Portland, OR",
+          "text": "Conducted literature reviews related to ongoing psychological research. Prepared annotated bibliographies and synthesized findings from academic publications. Presented literature findings during weekly research meetings. Developed skills in evaluating scientific sources, identifying relevant evidence, and communicating research information clearly."
+        },
+        {
+          "when": "2015—2017",
+          "title": "Medical Scribe",
+          "org": "Scribes of America — Portland, OR",
+          "text": "Supported physicians and clinical teams in fast-paced medical environments. Accurately documented patient encounters, including histories, physical examinations, assessments, and treatment plans. Documented complex Ear, Nose, and Throat clinical encounters with attention to medical terminology and detail. Maintained confidentiality while handling sensitive patient information. Developed familiarity with clinical workflows, physician documentation, and communication within healthcare teams."
+        },
+        {
+          "title": "Doctor's Assistant & Receptionist",
+          "org": "A Place for Healing, Holistic Veterinary Care — Boring, OR",
+          "text": "Supported a veterinarian with clinical and administrative responsibilities. Coordinated appointments and schedules, answered phones, organized records, and completed office documentation. Assisted with day-to-day clinical operations in a small healthcare environment. Communicated with clients and coordinated information across administrative and clinical responsibilities."
+        }
+      ]
+    },
+    {
+      "heading": "Additional Professional Experience",
+      "items": [
+        {
+          "when": "March 2025 — Present",
+          "title": "Souvenir Photographer & Sales Associate",
+          "org": "Photogenic Inc. at Gateway Arch — St. Louis, MO",
+          "text": "Recognized as the #1 selling associate within the Gateway Arch photography operation. Provide a welcoming, professional experience for visitors in a fast-paced, high-volume environment. Coordinate with coworkers and adapt to changing tour schedules and operational demands. Capture, edit, and present photographs while maintaining accuracy and attention to customer needs. Consistently meet or exceed daily performance expectations through effective communication and organization."
+        }
+      ]
+    },
+    {
+      "heading": "Education",
+      "items": [
+        {
+          "title": "Osteopathic Medical Education",
+          "org": "College of Osteopathic Medicine of the Pacific-Northwest",
+          "text": "Completed foundational osteopathic medical sciences and early clinical training."
+        },
+        {
+          "when": "2011 — 2015",
+          "title": "Bachelor of Arts, Psychology (Pre-Medicine) · Minor in Women's Studies",
+          "org": "Portland State University — Portland, OR",
+          "text": "Major GPA: 4.0 · Cumulative GPA: 3.96. President's List · Dean's List."
+        },
+        {
+          "when": "2004 — 2006",
+          "title": "Associate of Arts, Fashion Design",
+          "org": "Fashion Institute of Design & Merchandising — Los Angeles, CA",
+          "text": "GPA: 3.96. 2006 Fashion Design Student of the Year Nominee."
+        }
+      ]
+    },
+    {
+      "heading": "Data & Professional Development",
+      "items": [
+        {
+          "when": "2025",
+          "title": "Career Accelerator Program, Data Analytics Track",
+          "org": "Rung for Women — St. Louis, MO",
+          "text": "Completed professional development in data analytics, data literacy, visualization, and workforce readiness. Developed skills in interpreting, organizing, and communicating data through mentorship, professional development, and technical training."
+        },
+        {
+          "title": "Additional Technical Training",
+          "text": "ALX Data Analytics coursework · Harvard CS50 Introduction to Computer Science coursework · Microsoft Office / PowerPoint · Digital research and information management · AI and application UX testing."
+        }
+      ]
+    },
+    {
+      "heading": "Leadership & Community",
+      "items": [
+        {
+          "title": "University Studies Peer Mentor",
+          "org": "Portland State University",
+          "text": "Planned and facilitated mentoring sessions for Freshman Inquiry courses. Served as a liaison between students and faculty. Collaborated with faculty partners to implement University Studies goals. Supported students through communication, facilitation, and problem-solving."
+        },
+        {
+          "title": "Premedical Sciences Peer Leader",
+          "org": "Portland State University",
+          "text": "Planned and facilitated peer-learning sessions for Freshman Inquiry courses. Served as a liaison between students and faculty. Collaborated with faculty partners to support science inquiry goals."
+        },
+        {
+          "title": "Volunteer",
+          "org": "Legacy Good Samaritan Hospital",
+          "text": "Supported guest services and patient experience initiatives. Assisted with stocking, special projects, and medical staff support. Helped train new volunteers and maintain an organized healthcare environment."
+        },
+        {
+          "when": "2020 — 2023",
+          "title": "Crisis Intervention Volunteer — Teens Talk",
+          "org": "Nye Beach, OR",
+          "text": "Provided support and crisis intervention for at-risk youth. Built rapport with individuals experiencing difficult circumstances. Advocated for participant needs and connected individuals with appropriate resources. Developed strong communication, active listening, and interpersonal skills in challenging situations."
+        }
+      ]
+    },
+    {
+      "heading": "Skills",
+      "tags": [
+        "Biomedical Research",
+        "Clinical Documentation",
+        "Scientific Literature Review",
+        "Research Data Collection",
+        "Program Evaluation",
+        "Quantitative PCR",
+        "Western Blotting",
+        "Protein & RNA Isolation",
+        "Medical Terminology",
+        "Patient / Participant Communication",
+        "Data Analysis & Visualization",
+        "Microsoft Office",
+        "Team Collaboration",
+        "Organization & Attention to Detail",
+        "Confidentiality & Professional Communication"
+      ]
     }
-  },
+  ],
+  "contactHeading": "Contact",
+  "actions": {
+    "email": "Email me",
+    "print": "Print / PDF"
+  }
+},
   "store": {
     "pageTitle": "{page} — {name} store",
     "pages": {
