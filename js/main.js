@@ -17,6 +17,11 @@ let MM_CONTENT = null; // data.js content, untouched
 // data.js sits next to this script's folder, wherever the page is
 const MM_DATA_URL = new URL("../data.js", document.currentScript.src);
 
+// Bump MM_DATA_VERSION whenever data.js content changes. The version rides
+// along as a query param so visitors fetch fresh content after a deploy
+// instead of rendering a stale cached copy.
+const MM_DATA_VERSION = "20261002c";
+
 function mmGet(obj, path) {
   return path.reduce((o, k) => o?.[k], obj);
 }
@@ -57,7 +62,7 @@ const MM_FALLBACK_SITE = {
   menuFoot: "Mary Adele Mehan",
   nav: [
     { id: "home", label: "Home", href: "index.html", icon: "home" },
-    { id: "projects", label: "Projects", href: "projects.html", icon: "heart" },
+    { id: "projects", label: "Artwork", href: "projects.html", icon: "heart" },
     { id: "resume", label: "Resume", href: "resume.html", icon: "person" },
     { id: "store", label: "Store", href: "store/index.html", icon: "bag" },
   ],
@@ -88,7 +93,7 @@ const mmDomReady = new Promise((resolve) =>
 const mmContent = Promise.race([
   new Promise((resolve, reject) => {
     const script = document.createElement("script");
-    script.src = MM_DATA_URL;
+    script.src = MM_DATA_URL.href + "?v=" + MM_DATA_VERSION;
     script.onload = () =>
       window.MM_DATA
         ? resolve(window.MM_DATA)
@@ -292,12 +297,15 @@ function projectCard(p, i) {
   const a = document.createElement("a");
   a.className = "card";
   a.href = p.href || "projects.html";
-  if (p.href) {
+  if (/^https?:\/\//.test(p.href || "")) {
     a.target = "_blank";
     a.rel = "noopener";
   }
+  const thumb = p.image
+    ? `<div class="thumb has-img"><img src="${p.image}" alt="${p.name}" loading="lazy"></div>`
+    : `<div class="thumb ${p.tone || "t-" + ((i % 4) + 1)}" data-num="${String(i + 1).padStart(2, "0")}"></div>`;
   a.innerHTML = `
-    <div class="thumb ${p.tone || "t-" + ((i % 4) + 1)}" data-num="${String(i + 1).padStart(2, "0")}"></div>
+    ${thumb}
     <div class="cat">${p.cat}</div>
     <div class="name">${p.name}</div>
     <div class="meta"><span class="tag">${p.year}</span>${p.role}</div>`;

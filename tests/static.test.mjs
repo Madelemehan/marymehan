@@ -26,6 +26,12 @@ test('no ES modules or fetch() in site code (must work from file://)', () => {
   }
 });
 
+test('data.js loads with a cache-busting version', () => {
+  const src = read('js/main.js');
+  assert.match(src, /MM_DATA_VERSION\s*=\s*"[^"]+"/, 'main.js needs an MM_DATA_VERSION constant');
+  assert.match(src, /\?v="\s*\+\s*MM_DATA_VERSION/, 'data.js script src must carry the version param');
+});
+
 test('every page loads main.js before its own scripts', () => {
   for (const file of html) {
     const srcs = [...read(file).matchAll(/<script\b[^>]*\bsrc="([^"]+)"/g)].map(m => m[1]);
