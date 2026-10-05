@@ -52,7 +52,7 @@ storePage(({ categories, taglines }) => {
     `;
   }
 
-  // Featured products
+  // Featured products — the original six (established works; new arrivals keep their "New" badge in the full catalog)
   const featuredGrid = document.getElementById('featured-grid');
-  if (featuredGrid) renderProductGrid(featuredGrid, getFeaturedProducts(8));
+  if (featuredGrid) renderProductGrid(featuredGrid, STORE.products.filter(p => !p.badge));
 });

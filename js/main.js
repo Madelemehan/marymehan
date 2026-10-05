@@ -20,7 +20,7 @@ const MM_DATA_URL = new URL("../data.js", document.currentScript.src);
 // Bump MM_DATA_VERSION whenever data.js content changes. The version rides
 // along as a query param so visitors fetch fresh content after a deploy
 // instead of rendering a stale cached copy.
-const MM_DATA_VERSION = "20261005e";
+const MM_DATA_VERSION = "20261005f";
 
 function mmGet(obj, path) {
   return path.reduce((o, k) => o?.[k], obj);
@@ -302,7 +302,7 @@ function projectCard(p, i) {
     a.rel = "noopener";
   }
   const thumb = p.image
-    ? `<div class="thumb has-img"><img src="${p.image}" alt="${p.name}" loading="lazy"></div>`
+    ? `<div class="thumb has-img"><img src="${p.image}" alt="${p.name}" loading="lazy"${p.thumbPosition ? ` style="object-position:${p.thumbPosition}"` : ""}></div>`
     : `<div class="thumb ${p.tone || "t-" + ((i % 4) + 1)}" data-num="${String(i + 1).padStart(2, "0")}"></div>`;
   a.innerHTML = `
     ${thumb}

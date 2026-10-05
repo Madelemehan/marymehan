@@ -242,7 +242,7 @@ function artTone(p) {
 }
 
 function artImg(p, lazy = true) {
-  return p.image ? `<img src="${p.image}" alt="${p.name}"${lazy ? ' loading="lazy"' : ''}>` : '';
+  return p.image ? `<img src="${p.image}" alt="${p.name}"${lazy ? ' loading="lazy"' : ''}${p.thumbPosition ? ` style="object-position:${p.thumbPosition}"` : ''}>` : '';
 }
 
 function emptyState(title, text, linkText, href = 'index.html') {

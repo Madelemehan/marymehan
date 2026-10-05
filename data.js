@@ -122,7 +122,8 @@ window.MM_DATA = {
         "year": "n.d.",
         "role": "Ink on paper",
         "image": "img/art/something-wonderful.jpg",
-        "href": "store/product.html?id=something-wonderful-print"
+        "href": "store/product.html?id=something-wonderful-print",
+        "thumbPosition": "50% 100%"
       },
             {
         "name": "What Are You Aiming At",
@@ -476,7 +477,8 @@ window.MM_DATA = {
         ],
         "image": "../img/art/something-wonderful.jpg",
         "stock": 25,
-        "badge": "New"
+        "badge": "New",
+        "thumbPosition": "50% 100%"
       },
             {
         "id": "what-are-you-aiming-at-print",
