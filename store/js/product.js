@@ -1,4 +1,4 @@
-storePage(() => {
+storePage((STORE, data) => {
   const params = new URLSearchParams(location.search);
   const product = getProductById(params.get('id'));
   const container = document.getElementById('product-container');
@@ -13,7 +13,7 @@ storePage(() => {
       ? Math.round((1 - product.price / product.originalPrice) * 100)
       : null;
     const stockClass = product.stock > 10 ? '' : product.stock > 0 ? 'low' : 'out';
-    const stockText = product.stock > 10 ? 'In stock' : product.stock > 0 ? `Only ${product.stock} left` : 'Out of stock';
+    const stockText = product.byRequest ? 'Available by request' : product.stock > 10 ? 'In stock' : product.stock > 0 ? `Only ${product.stock} left` : 'Out of stock';
 
     container.innerHTML = `
       <nav class="crumbs" aria-label="Breadcrumb">
@@ -50,6 +50,12 @@ storePage(() => {
 
           <div class="stock ${stockClass}">${stockText}</div>
 
+          ${product.byRequest ? `
+          <div class="buy-row">
+            <a class="btn block" href="mailto:${data.site.email}?subject=${encodeURIComponent('Request: ' + product.name)}">Request this print</a>
+          </div>
+          <p class="desc">Available by request only — email to arrange your print.</p>
+          ` : `
           <div class="buy-row">
             <div class="stepper">
               <button id="qty-minus" aria-label="Decrease quantity">−</button>
@@ -62,9 +68,12 @@ storePage(() => {
           </div>
 
           <a class="btn ghost block" href="cart.html">View cart</a>
+          `}
         </div>
       </div>
     `;
+
+    if (product.byRequest) return; // no cart flow — request via email instead
 
     const qtyInput = document.getElementById('qty-input');
     const clampQty = n => Math.min(product.stock, Math.max(1, Math.floor(n) || 1));

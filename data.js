@@ -433,17 +433,18 @@ window.MM_DATA = {
     ],
     "products": [      {
         "id": "compersion-print",
-        "name": "Compersion \u2014 Print",
+        "name": "Compersion \u2014 First Edition Print",
         "category": "prints",
         "price": 150.0,
-        "description": "The diary page you weren\u2019t supposed to read: \u201cDo I want you to have as much fun without me? What kind of fucked up question is that? No?\u201d A signed limited-edition print of the original ink sketch.",
+        "description": "The diary page you weren\u2019t supposed to read: \u201cDo I want you to have as much fun without me? What kind of fucked up question is that? No?\u201d This would be a first edition print of the original ink sketch, available by request \u2014 email hello@marymehan.com.",
         "features": [
-          "Signed, limited edition of 25",
+          "First edition print, signed",
           "Archival gicl\u00e9e print",
           "Fits a 13 \u00d7 19 in frame",
-          "Ships flat"
+          "Available by request only"
         ],
         "image": "../img/art/compersion.jpg",
+        "byRequest": true,
         "stock": 25,
         "badge": "New"
       },

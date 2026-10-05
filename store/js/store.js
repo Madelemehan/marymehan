@@ -268,7 +268,9 @@ function productCard(p) {
       <div class="meta price">
         <span class="tag">${money(p.price)}</span>${p.originalPrice ? `<s>${money(p.originalPrice)}</s>` : ''}
       </div>
-      <button class="btn ghost sm block add" data-add-cart="${p.id}">Add to cart</button>
+      ${p.byRequest
+        ? `<a class="btn ghost sm block" href="product.html?id=${p.id}">Available by request</a>`
+        : `<button class="btn ghost sm block add" data-add-cart="${p.id}">Add to cart</button>`}
     </div>`;
 }
 
