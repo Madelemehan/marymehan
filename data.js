@@ -101,6 +101,70 @@ window.MM_DATA = {
     "allLabel": "All",
     "items": [
       {
+        "name": "Compersion",
+        "cat": "The Gaze",
+        "year": "n.d.",
+        "role": "Ink on paper",
+        "image": "img/art/compersion.jpg",
+        "href": "store/product.html?id=compersion-print"
+      },
+      {
+        "name": "Horse Rising",
+        "cat": "Myth & Figure",
+        "year": "n.d.",
+        "role": "Ink on paper",
+        "image": "img/art/horse-water.jpg",
+        "href": "store/product.html?id=horse-rising-print"
+      },
+      {
+        "name": "Something Wonderful Is Going to Happen to Me Today",
+        "cat": "Becoming",
+        "year": "n.d.",
+        "role": "Ink on paper",
+        "image": "img/art/something-wonderful.jpg",
+        "href": "store/product.html?id=something-wonderful-print"
+      },
+      {
+        "name": "Gemini Full Moon",
+        "cat": "Myth & Figure",
+        "year": "n.d.",
+        "role": "Ink on paper",
+        "image": "img/art/gemini-moon.jpg",
+        "href": "store/product.html?id=gemini-moon-print"
+      },
+      {
+        "name": "What Are You Aiming At",
+        "cat": "Myth & Figure",
+        "year": "n.d.",
+        "role": "Ink on paper",
+        "image": "img/art/horse-forest.jpg",
+        "href": "store/product.html?id=what-are-you-aiming-at-print"
+      },
+      {
+        "name": "Statistically: Unlikely",
+        "cat": "Becoming",
+        "year": "n.d.",
+        "role": "Ink on paper",
+        "image": "img/art/statistically-unlikely.jpg",
+        "href": "store/product.html?id=statistically-unlikely-print"
+      },
+      {
+        "name": "Where Are Your Wings Now",
+        "cat": "Myth & Figure",
+        "year": "n.d.",
+        "role": "Ink on paper",
+        "image": "img/art/wings-now.jpg",
+        "href": "store/product.html?id=where-are-your-wings-now-print"
+      },
+      {
+        "name": "Counter-Ticket for Nate",
+        "cat": "The Gaze",
+        "year": "n.d.",
+        "role": "Ink on paper",
+        "image": "img/art/nate-ticket.jpg",
+        "href": "store/product.html?id=nate-counter-ticket-print"
+      },
+      {
         "name": "She Is Not an Exhibit",
         "cat": "The Gaze",
         "year": "2022",
