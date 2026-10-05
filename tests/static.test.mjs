@@ -34,7 +34,7 @@ test('data.js loads with a cache-busting version', () => {
 
 test('every page loads main.js before its own scripts', () => {
   for (const file of html) {
-    const srcs = [...read(file).matchAll(/<script\b[^>]*\bsrc="([^"]+)"/g)].map(m => m[1]);
+    const srcs = [...read(file).matchAll(/<script\b[^>]*\bsrc="([^"]+)"/g)].map(m => m[1].split('?')[0]);
     const main = file.includes('/') ? '../js/main.js' : 'js/main.js';
     assert.equal(srcs[0], main, `${file}: first script should be ${main}`);
     if (file.startsWith('store/')) assert.equal(srcs[1], 'js/store.js', `${file}: store.js should load right after main.js`);
