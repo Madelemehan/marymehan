@@ -125,6 +125,14 @@ window.MM_DATA = {
         "href": "store/product.html?id=something-wonderful-print",
         "thumbPosition": "50% 100%"
       },
+{
+        "name": "Gemini Full Moon",
+        "cat": "Myth & Figure",
+        "year": "n.d.",
+        "role": "Ink on paper",
+        "image": "img/art/gemini-moon.jpg",
+        "href": "store/product.html?id=gemini-moon-print"
+      },
             {
         "name": "What Are You Aiming At",
         "cat": "Myth & Figure",
@@ -141,15 +149,7 @@ window.MM_DATA = {
         "image": "img/art/statistically-unlikely.jpg",
         "href": "store/product.html?id=statistically-unlikely-print"
       },
-      {
-        "name": "Where Are Your Wings Now",
-        "cat": "Myth & Figure",
-        "year": "n.d.",
-        "role": "Ink on paper",
-        "image": "img/art/wings-now.jpg",
-        "href": "store/product.html?id=where-are-your-wings-now-print"
-      },
-      {
+            {
         "name": "Counter-Ticket for Nate",
         "cat": "The Gaze",
         "year": "n.d.",
@@ -481,6 +481,22 @@ window.MM_DATA = {
         "badge": "New",
         "thumbPosition": "50% 100%"
       },
+{
+        "id": "gemini-moon-print",
+        "name": "Gemini Full Moon \u2014 Print",
+        "category": "prints",
+        "price": 150.0,
+        "description": "Two winged figures tangled inside a full moon, drawn on the Gemini full moon and sealed with a kiss. A signed limited-edition print of the original ink drawing.",
+        "features": [
+          "Signed, limited edition of 25",
+          "Archival gicl\u00e9e print",
+          "Fits a 13 \u00d7 19 in frame",
+          "Ships flat"
+        ],
+        "image": "../img/art/gemini-moon.jpg",
+        "stock": 25,
+        "badge": "New"
+      },
             {
         "id": "what-are-you-aiming-at-print",
         "name": "What Are You Aiming At \u2014 Print",
@@ -513,23 +529,7 @@ window.MM_DATA = {
         "stock": 25,
         "badge": "New"
       },
-      {
-        "id": "where-are-your-wings-now-print",
-        "name": "Where Are Your Wings Now \u2014 Print",
-        "category": "prints",
-        "price": 150.0,
-        "description": "A kneeling angel, asked the hardest question in her own handwriting: Mary, where are your wings now. Sealed with a kiss. A signed limited-edition print of the original ink drawing.",
-        "features": [
-          "Signed, limited edition of 25",
-          "Archival gicl\u00e9e print",
-          "Fits a 13 \u00d7 19 in frame",
-          "Ships flat"
-        ],
-        "image": "../img/art/wings-now.jpg",
-        "stock": 25,
-        "badge": "New"
-      },
-      {
+            {
         "id": "nate-counter-ticket-print",
         "name": "Counter-Ticket for Nate \u2014 Print",
         "category": "prints",
