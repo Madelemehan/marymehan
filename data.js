@@ -465,6 +465,126 @@ window.MM_DATA = {
         ],
         "image": "../img/art/figure-study.jpg",
         "stock": 25
+      },
+      {
+        "id": "compersion-print",
+        "name": "Compersion \u2014 Print",
+        "category": "prints",
+        "price": 150.0,
+        "description": "The diary page you weren\u2019t supposed to read: \u201cDo I want you to have as much fun without me? What kind of fucked up question is that? No?\u201d A signed limited-edition print of the original ink sketch.",
+        "features": [
+          "Signed, limited edition of 25",
+          "Archival gicl\u00e9e print",
+          "Fits a 13 \u00d7 19 in frame",
+          "Ships flat"
+        ],
+        "image": "../img/art/compersion.jpg",
+        "stock": 25
+      },
+      {
+        "id": "horse-rising-print",
+        "name": "Horse Rising \u2014 Print",
+        "category": "prints",
+        "price": 150.0,
+        "description": "A horse rising out of black water, sealed with her lipstick kiss. Mythic, wet, and unmistakably hers. A signed limited-edition print of the original ink drawing.",
+        "features": [
+          "Signed, limited edition of 25",
+          "Archival gicl\u00e9e print",
+          "Fits a 13 \u00d7 19 in frame",
+          "Ships flat"
+        ],
+        "image": "../img/art/horse-water.jpg",
+        "stock": 25
+      },
+      {
+        "id": "something-wonderful-print",
+        "name": "Something Wonderful Is Going to Happen to Me Today \u2014 Print",
+        "category": "prints",
+        "price": 150.0,
+        "description": "A tiny figure under a huge sky, with a prayer written underneath in her own hand. A signed limited-edition print of the original ink drawing.",
+        "features": [
+          "Signed, limited edition of 25",
+          "Archival gicl\u00e9e print",
+          "Fits a 13 \u00d7 19 in frame",
+          "Ships flat"
+        ],
+        "image": "../img/art/something-wonderful.jpg",
+        "stock": 25
+      },
+      {
+        "id": "gemini-moon-print",
+        "name": "Gemini Full Moon \u2014 Print",
+        "category": "prints",
+        "price": 150.0,
+        "description": "Two winged figures tangled inside a full moon, drawn on the Gemini full moon and sealed with a kiss. A signed limited-edition print of the original ink drawing.",
+        "features": [
+          "Signed, limited edition of 25",
+          "Archival gicl\u00e9e print",
+          "Fits a 13 \u00d7 19 in frame",
+          "Ships flat"
+        ],
+        "image": "../img/art/gemini-moon.jpg",
+        "stock": 25
+      },
+      {
+        "id": "what-are-you-aiming-at-print",
+        "name": "What Are You Aiming At \u2014 Print",
+        "category": "prints",
+        "price": 150.0,
+        "description": "A rider on horseback among winter trees, interrogating herself in the margins: \u201cMary, what are you aiming at?\u201d \u201cI don\u2019t think about that.\u201d A signed limited-edition print of the original ink drawing.",
+        "features": [
+          "Signed, limited edition of 25",
+          "Archival gicl\u00e9e print",
+          "Fits a 13 \u00d7 19 in frame",
+          "Ships flat"
+        ],
+        "image": "../img/art/horse-forest.jpg",
+        "stock": 25
+      },
+      {
+        "id": "statistically-unlikely-print",
+        "name": "Statistically: Unlikely \u2014 Print",
+        "category": "prints",
+        "price": 150.0,
+        "description": "\u201cOver for her...? Pfshh. Statistically: unlikely.\u201d Defiance in her own handwriting, over a reclining figure \u2014 among other things, too pretty. A signed limited-edition print of the original ink drawing.",
+        "features": [
+          "Signed, limited edition of 25",
+          "Archival gicl\u00e9e print",
+          "Fits a 13 \u00d7 19 in frame",
+          "Ships flat"
+        ],
+        "image": "../img/art/statistically-unlikely.jpg",
+        "stock": 25
+      },
+      {
+        "id": "where-are-your-wings-now-print",
+        "name": "Where Are Your Wings Now \u2014 Print",
+        "category": "prints",
+        "price": 150.0,
+        "description": "A kneeling angel, asked the hardest question in her own handwriting: Mary, where are your wings now. Sealed with a kiss. A signed limited-edition print of the original ink drawing.",
+        "features": [
+          "Signed, limited edition of 25",
+          "Archival gicl\u00e9e print",
+          "Fits a 13 \u00d7 19 in frame",
+          "Ships flat"
+        ],
+        "image": "../img/art/wings-now.jpg",
+        "stock": 25
+      },
+      {
+        "id": "nate-counter-ticket-print",
+        "name": "Counter-Ticket for Nate \u2014 Print",
+        "category": "prints",
+        "price": 150.0,
+        "description": "She drew this counter-ticket for Nate \u2014 a kid barred from the skate park \u2014 and carried it into the police station to argue he should be let back in. It didn\u2019t work, but the ticket stands: thou shalt not hold Nate down. A signed limited-edition print of the original.",
+        "features": [
+          "Signed, limited edition of 25",
+          "Archival gicl\u00e9e print",
+          "Fits a 13 \u00d7 19 in frame",
+          "Ships flat"
+        ],
+        "image": "../img/art/nate-ticket.jpg",
+        "stock": 25
       }
     ]
   }
