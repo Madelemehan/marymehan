@@ -124,15 +124,7 @@ window.MM_DATA = {
         "image": "img/art/something-wonderful.jpg",
         "href": "store/product.html?id=something-wonderful-print"
       },
-      {
-        "name": "Gemini Full Moon",
-        "cat": "Myth & Figure",
-        "year": "n.d.",
-        "role": "Ink on paper",
-        "image": "img/art/gemini-moon.jpg",
-        "href": "store/product.html?id=gemini-moon-print"
-      },
-      {
+            {
         "name": "What Are You Aiming At",
         "cat": "Myth & Figure",
         "year": "n.d.",
@@ -486,23 +478,7 @@ window.MM_DATA = {
         "stock": 25,
         "badge": "New"
       },
-      {
-        "id": "gemini-moon-print",
-        "name": "Gemini Full Moon \u2014 Print",
-        "category": "prints",
-        "price": 150.0,
-        "description": "Two winged figures tangled inside a full moon, drawn on the Gemini full moon and sealed with a kiss. A signed limited-edition print of the original ink drawing.",
-        "features": [
-          "Signed, limited edition of 25",
-          "Archival gicl\u00e9e print",
-          "Fits a 13 \u00d7 19 in frame",
-          "Ships flat"
-        ],
-        "image": "../img/art/gemini-moon.jpg",
-        "stock": 25,
-        "badge": "New"
-      },
-      {
+            {
         "id": "what-are-you-aiming-at-print",
         "name": "What Are You Aiming At \u2014 Print",
         "category": "prints",
