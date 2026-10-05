@@ -20,7 +20,7 @@ const MM_DATA_URL = new URL("../data.js", document.currentScript.src);
 // Bump MM_DATA_VERSION whenever data.js content changes. The version rides
 // along as a query param so visitors fetch fresh content after a deploy
 // instead of rendering a stale cached copy.
-const MM_DATA_VERSION = "20261005a";
+const MM_DATA_VERSION = "20261005b";
 
 function mmGet(obj, path) {
   return path.reduce((o, k) => o?.[k], obj);
