@@ -116,7 +116,7 @@ for (const [label, base] of [['http', () => server.url], ['file://', () => pathT
       assert.equal(r.hero, hero.title.join(''));
       assert.equal(r.ctas, (hero.ctas || []).length);
       assert.equal(r.tiles, store.categories.length);
-      assert.equal(r.cards, Math.min(8, store.products.length));
+      assert.equal(r.cards, store.products.filter(p => !p.badge).length, 'featured grid shows the original (non-New) products');
       assert.equal(r.shopLinks, store.categories.length + 2, 'footer shop links: Store + categories + Cart');
     }));
 
