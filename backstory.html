@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0e0e0e" />
+  <title>Backstory — Mary Adele Mehan</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="backstory">
+
+  <div class="page-hero">
+    <div class="wrap">
+      <h1 id="backstory-heading"></h1>
+      <p id="backstory-sub"></p>
+    </div>
+  </div>
+
+  <!-- paragraphs from data.js → backstory.paragraphs -->
+  <div class="wrap">
+    <div class="backstory-body" id="backstory-body"></div>
+  </div>
+
+  <!-- filled from data.js by main.js -->
+  <footer class="site-footer"></footer>
+
+  <script src="js/main.js?v=20261006a"></script>
+  <script>
+    mmPage((data) => {
+      const backstory = data.backstory;
+      document.title = backstory.title;
+      document.getElementById("backstory-heading").textContent = backstory.heading;
+      document.getElementById("backstory-sub").textContent = backstory.sub;
+      const body = document.getElementById("backstory-body");
+      backstory.paragraphs.forEach((text) => {
+        const p = document.createElement("p");
+        p.textContent = text;
+        body.appendChild(p);
+      });
+    });
+  </script>
+</body>
+</html>

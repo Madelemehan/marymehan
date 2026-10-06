@@ -16,10 +16,10 @@ const window = {};
 vm.runInNewContext(readFileSync(ROOT + 'data.js', 'utf8'), { window }, { filename: 'data.js' });
 const data = window.MM_DATA;
 if (!data || typeof data !== 'object') throw new Error('data.js did not set window.MM_DATA');
-for (const key of ['site', 'home', 'projects', 'resume', 'store']) {
+for (const key of ['site', 'home', 'projects', 'resume', 'backstory', 'store']) {
   if (!data[key]) throw new Error(`data.js is missing the "${key}" section`);
 }
-const { site, home, projects, resume, store } = data;
+const { site, home, projects, resume, backstory, store } = data;
 
 const base = process.env.SITE_URL ? process.env.SITE_URL.replace(/\/?$/, '/') : '';
 const url = path => (/^[a-z]+:/i.test(path) ? path : base + path);
@@ -53,6 +53,7 @@ add(link(navLabel('home') || 'Home', 'index.html', `Featured work and an introdu
 add(link(navLabel('projects') || 'Projects', 'projects.html',
   `${plural(projects.items.length, 'project')}, filterable by category (${projectCats.join(', ')})`));
 add(link(navLabel('resume') || 'Resume', 'resume.html', `${resume.sections.map(s => s.heading).join(', ')}, and contact details`));
+add(link(navLabel('backstory') || 'Backstory', 'backstory.html', backstory.sub));
 add(link(navLabel('store') || 'Store', 'store/index.html',
   `Shop for ${store.categories.map(c => c.name.toLowerCase()).join(', ')}; ${plural(store.products.length, 'item')}`));
 add('');
@@ -75,6 +76,10 @@ for (const s of resume.sections) {
   add('');
 }
 add(`### ${resume.contactHeading}`, '', `- Email: ${site.email}`, `- Based in: ${site.location}`, '');
+
+// ---------- backstory ----------
+add(`## ${backstory.heading}`, '');
+for (const para of backstory.paragraphs) add(para, '');
 
 // ---------- store ----------
 add('## Store', '');

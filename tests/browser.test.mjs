@@ -13,7 +13,7 @@ if (!chrome && process.env.REQUIRE_BROWSER) throw new Error('REQUIRE_BROWSER is 
 const skip = chrome ? false : 'no Chrome/Chromium found (set CHROME_PATH to run browser tests)';
 
 const data = loadData();
-const { site, home, projects, resume, store } = data;
+const { site, home, projects, resume, backstory, store } = data;
 
 let browser, server;
 before(async () => {
@@ -93,6 +93,15 @@ for (const [label, base] of [['http', () => server.url], ['file://', () => pathT
     test('resume', () => check('resume.html', async page => {
       const blocks = await page.evaluate(() => [...document.querySelectorAll('.resume-block h3')].map(h => h.textContent));
       assert.deepEqual(blocks, [...resume.sections.map(s => s.heading), resume.contactHeading]);
+    }));
+
+    test('backstory', () => check('backstory.html', async page => {
+      const r = await page.evaluate(() => ({
+        heading: document.getElementById('backstory-heading')?.textContent,
+        paras: document.querySelectorAll('#backstory-body p').length,
+      }));
+      assert.equal(r.heading, backstory.heading);
+      assert.equal(r.paras, backstory.paragraphs.length);
     }));
 
     test('control', () => check('control.html', async page => {

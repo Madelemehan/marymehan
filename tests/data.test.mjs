@@ -7,13 +7,13 @@ import { join } from 'node:path';
 import { ROOT, read, exists, loadData, parseDataAsJson, iconNames, fallbackSite, TONES } from './lib/site.mjs';
 
 const data = loadData();
-const { site, home, projects, resume, store } = data;
+const { site, home, projects, resume, backstory, store } = data;
 const nonEmpty = (v, what) => assert.ok(typeof v === 'string' && v.trim(), `${what} should be a non-empty string`);
 const pathOf = href => href.split(/[?#]/)[0];
 
 test('data.js runs and sets window.MM_DATA', () => {
   assert.equal(typeof data, 'object');
-  for (const key of ['site', 'home', 'projects', 'resume', 'store']) assert.ok(data[key], `missing "${key}" section`);
+  for (const key of ['site', 'home', 'projects', 'resume', 'backstory', 'store']) assert.ok(data[key], `missing "${key}" section`);
 });
 
 test('data.js is JSON-shaped (double quotes, no trailing commas, no code)', () => {
@@ -77,6 +77,14 @@ test('resume: sections have items or tags', () => {
     for (const i of s.items || []) nonEmpty(i.title, `resume item in "${s.heading}"`);
   }
   nonEmpty(resume.contactHeading, 'resume.contactHeading');
+});
+
+test('backstory: heading and paragraphs', () => {
+  nonEmpty(backstory.title, 'backstory.title');
+  nonEmpty(backstory.heading, 'backstory.heading');
+  nonEmpty(backstory.sub, 'backstory.sub');
+  assert.ok(backstory.paragraphs?.length, 'backstory.paragraphs is empty');
+  for (const p of backstory.paragraphs) nonEmpty(p, 'backstory paragraph');
 });
 
 test('store: categories and products are consistent', () => {

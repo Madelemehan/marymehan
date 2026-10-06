@@ -566,6 +566,16 @@ svg { display: block; }
   border-radius: 999px;
 }
 .resume-actions { padding: 34px 0; display: flex; gap: 10px; }
+
+/* ---------- backstory ---------- */
+.backstory-body { max-width: 700px; padding: 8px 0 64px; }
+.backstory-body p { font-size: 18px; line-height: 1.75; margin: 0 0 1.4em; color: var(--text); }
+.backstory-body p:first-child {
+  font-size: clamp(22px, 4.4vw, 30px);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
 .btn {
   display: inline-block;
   border: 1px solid var(--text);

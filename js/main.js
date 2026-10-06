@@ -20,7 +20,7 @@ const MM_DATA_URL = new URL("../data.js", document.currentScript.src);
 // Bump MM_DATA_VERSION whenever data.js content changes. The version rides
 // along as a query param so visitors fetch fresh content after a deploy
 // instead of rendering a stale cached copy.
-const MM_DATA_VERSION = "20261005h";
+const MM_DATA_VERSION = "20261006a";
 
 function mmGet(obj, path) {
   return path.reduce((o, k) => o?.[k], obj);
@@ -194,6 +194,7 @@ const MM_ICONS = {
   home: '<svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7"/><path d="M6 9.5V20h12V9.5"/></svg>',
   person: '<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M4.8 20.5c1-4 3.8-6 7.2-6s6.2 2 7.2 6"/></svg>',
   clock: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3.5 2"/></svg>',
+  pen: '<svg viewBox="0 0 24 24"><path d="M4 20l1.2-4.2L16.7 4.3a2.05 2.05 0 0 1 2.9 2.9L8.1 18.7 4 20z"/><path d="M14.8 6.2l2.9 2.9"/></svg>',
 };
 
 /* ---------- shared chrome: top bar, bottom nav, overlay menu, footer ----------

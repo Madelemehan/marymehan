@@ -24,6 +24,12 @@ window.MM_DATA = {
         "icon": "heart"
       },
       {
+        "id": "backstory",
+        "label": "Backstory",
+        "href": "backstory.html",
+        "icon": "pen"
+      },
+      {
         "id": "resume",
         "label": "Resume",
         "href": "resume.html",
@@ -636,6 +642,22 @@ window.MM_DATA = {
         "image": "../img/art/figure-study.jpg",
         "stock": 25
       }
+    ]
+  },
+  "backstory": {
+    "title": "Backstory — Mary Adele Mehan",
+    "heading": "Backstory",
+    "sub": "In her own words.",
+    "paragraphs": [
+      "I don't remember a time without art.",
+      "I went to Waldorf school from second through eighth grade — education through the arts. Until fourth grade we weren't allowed anything but wax crayons. Then fountain pens. We didn't get pencils until seventh or eighth grade, and even then, no erasers. Form drawing, folk dancing, choir, theater. It gave me a broad appreciation of the arts, honestly.",
+      "The reason I went to Waldorf: in first grade, my teacher humiliated a classmate in front of everybody — told him if he was so hungry he had to pick his nose and eat his boogers, he could excuse himself to the cafeteria. I told my mom I couldn't go back. My mom went and cussed out that teacher, and the next year I was at Waldorf. At Waldorf I found friendship.",
+      "Fashion design school is where I got my hand — my drawing style, how I render figures. I wasn't very good at making clothes. I was crap at sewing patterns. But I was a good artist, and I always took the hardest teacher, which was Nancy Riegelman. She's just a genius artist. Some classes we mostly crowded behind her and watched her draw.",
+      "She was the most demanding. She had the highest expectations. She'd grade you on whether something was actually good, no matter how much time you spent on it. Once I showed her a drawing I'd barely worked on — I'd hardly drawn anything on the page — and she just looked at it and said, \"Oh, it's done.\" It's not about more. It was about perfection.",
+      "That's why I don't feel the need to flesh out my drawings. I don't feel the need to put a background, or finish the whole thing, or fill it with color. Enough is enough. An implied line is so much more exciting — it's harder than making everything known and apparent and obvious. Using your brain and expectations and imagination is harder. Getting a movement without actually doing the full shape — I love that kind of thing.",
+      "My figures look like fairy fashion figures because of Waldorf and Nancy Riegelman.",
+      "The pieces here were made in Nye Beach, Oregon. I'd go out and dance on the beach in any weather — it was very physically demanding; I lost many toenails — and in the downtime I was totally isolated in my house, drawing. I'd put what I drew up in my window. I sang off my front steps. The body cost me a lot.",
+      "All my drawings are of myself. All the horses are Mariha — my mom's first horse."
     ]
   }
 };
