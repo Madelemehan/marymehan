@@ -159,7 +159,7 @@ describe('store flows', { skip }, () => {
   test('add to cart, change quantity, remove, check out', async () => {
     const page = await browser.newPage();
     try {
-      const [a, b] = store.products.filter(p => p.stock > 0 && !p.badge);
+      const [a, b] = store.products.filter(p => p.stock > 0 && !p.badge && !p.byRequest);
       await page.gotoAndRender(server.url + 'store/index.html');
       await page.click(`[data-add-cart="${a.id}"]`);
       assert.equal(await page.evaluate(() => document.getElementById('cart-badge').textContent), '1');
