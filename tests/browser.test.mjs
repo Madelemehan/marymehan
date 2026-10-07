@@ -160,7 +160,8 @@ describe('store flows', { skip }, () => {
   test('add to cart, change quantity, remove, check out', async () => {
     const page = await browser.newPage();
     try {
-      const [a, b] = store.products.filter(p => p.stock > 0 && !p.badge && !p.byRequest);
+      const featured = store.pages.home.featuredIds.map(id => store.products.find(p => p.id === id));
+      const [a, b] = featured.filter(p => p.stock > 0 && !p.byRequest);
       await page.gotoAndRender(server.url + 'store/index.html');
       await page.click(`[data-add-cart="${a.id}"]`);
       assert.equal(await page.evaluate(() => document.getElementById('cart-badge').textContent), '1');
@@ -226,7 +227,7 @@ describe('store flows', { skip }, () => {
   test('wishlist heart persists across pages', async () => {
     const page = await browser.newPage();
     try {
-      const p = store.products.find(p => !p.badge);
+      const p = store.pages.home.featuredIds.map(id => store.products.find(p => p.id === id))[0];
       await page.gotoAndRender(server.url + 'store/index.html');
       await page.click(`[data-wishlist="${p.id}"]`);
       await page.gotoAndRender(server.url + `store/category.html?category=${p.category}`);
