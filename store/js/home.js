@@ -52,7 +52,13 @@ storePage(({ categories, taglines }) => {
     `;
   }
 
-  // Featured products — the original six (established works; new arrivals keep their "New" badge in the full catalog)
+  // Featured products — the works Mary wants visitors to see first, in her order
+  // (data.js → store.pages.home.featuredIds). New arrivals keep their "New"
+  // badge in the full catalog.
   const featuredGrid = document.getElementById('featured-grid');
-  if (featuredGrid) renderProductGrid(featuredGrid, STORE.products.filter(p => !p.badge));
+  if (featuredGrid) {
+    const ids = storePageText().featuredIds || [];
+    const byId = Object.fromEntries(STORE.products.map(p => [p.id, p]));
+    renderProductGrid(featuredGrid, ids.map(id => byId[id]).filter(Boolean));
+  }
 });

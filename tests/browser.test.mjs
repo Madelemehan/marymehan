@@ -118,14 +118,15 @@ for (const [label, base] of [['http', () => server.url], ['file://', () => pathT
         hero: document.querySelector('.slide-title')?.textContent,
         ctas: document.querySelectorAll('.hero-ctas a').length,
         tiles: document.querySelectorAll('#categories-grid .cat-tile').length,
-        cards: document.querySelectorAll('#featured-grid .product-card').length,
+        cards: [...document.querySelectorAll('#featured-grid .product-card .name')].map(a => a.textContent),
         shopLinks: document.querySelectorAll('.site-footer .foot-links')[0]?.querySelectorAll('a').length,
       }));
       const hero = store.pages.home.hero;
+      const featuredNames = store.pages.home.featuredIds.map(id => store.products.find(p => p.id === id).name);
       assert.equal(r.hero, hero.title.join(''));
       assert.equal(r.ctas, (hero.ctas || []).length);
       assert.equal(r.tiles, store.categories.length);
-      assert.equal(r.cards, store.products.filter(p => !p.badge).length, 'featured grid shows the original (non-New) products');
+      assert.deepEqual(r.cards, featuredNames, 'featured grid shows Mary\'s chosen works in her order');
       assert.equal(r.shopLinks, store.categories.length + 2, 'footer shop links: Store + categories + Cart');
     }));
 
