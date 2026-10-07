@@ -384,7 +384,7 @@ window.MM_DATA = {
           ]
         },
         "categoriesHeading": "Shop by Category",
-        "featuredHeading": "New Arrivals",
+        "featuredHeading": "Featured",
         "featuredMore": {
           "label": "Shop all",
           "href": "category.html"
