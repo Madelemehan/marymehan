@@ -451,8 +451,7 @@ window.MM_DATA = {
         ],
         "image": "../img/art/compersion.jpg",
         "byRequest": true,
-        "stock": 25,
-        "badge": "New"
+        "stock": 25
       },
       {
         "id": "horse-rising-print",
@@ -467,8 +466,7 @@ window.MM_DATA = {
           "Ships flat"
         ],
         "image": "../img/art/horse-water.jpg",
-        "stock": 25,
-        "badge": "New"
+        "stock": 25
       },
       {
         "id": "something-wonderful-print",
@@ -484,7 +482,6 @@ window.MM_DATA = {
         ],
         "image": "../img/art/something-wonderful.jpg",
         "stock": 25,
-        "badge": "New",
         "thumbPosition": "50% 100%"
       },
 {
@@ -500,8 +497,7 @@ window.MM_DATA = {
           "Ships flat"
         ],
         "image": "../img/art/gemini-moon.jpg",
-        "stock": 25,
-        "badge": "New"
+        "stock": 25
       },
             {
         "id": "what-are-you-aiming-at-print",
@@ -516,8 +512,7 @@ window.MM_DATA = {
           "Ships flat"
         ],
         "image": "../img/art/horse-forest.jpg",
-        "stock": 25,
-        "badge": "New"
+        "stock": 25
       },
       {
         "id": "statistically-unlikely-print",
@@ -532,8 +527,7 @@ window.MM_DATA = {
           "Ships flat"
         ],
         "image": "../img/art/statistically-unlikely.jpg",
-        "stock": 25,
-        "badge": "New"
+        "stock": 25
       },
             {
         "id": "nate-counter-ticket-print",
@@ -565,6 +559,7 @@ window.MM_DATA = {
           "Ships flat"
         ],
         "image": "../img/art/exhibit.jpg",
+        "badge": "New",
         "stock": 25
       },
       {
@@ -580,6 +575,7 @@ window.MM_DATA = {
           "Ships flat"
         ],
         "image": "../img/art/becoming-eye.jpg",
+        "badge": "New",
         "stock": 25
       },
       {
@@ -595,6 +591,7 @@ window.MM_DATA = {
           "Ships flat"
         ],
         "image": "../img/art/north-node.jpg",
+        "badge": "New",
         "stock": 25
       },
       {
@@ -610,6 +607,7 @@ window.MM_DATA = {
           "Ships flat"
         ],
         "image": "../img/art/horse.jpg",
+        "badge": "New",
         "stock": 25
       },
       {
@@ -625,6 +623,7 @@ window.MM_DATA = {
           "Ships flat"
         ],
         "image": "../img/art/rider-headphones.jpg",
+        "badge": "New",
         "stock": 25
       },
       {
@@ -640,6 +639,7 @@ window.MM_DATA = {
           "Ships flat"
         ],
         "image": "../img/art/angel-heart.jpg",
+        "badge": "New",
         "stock": 25
       },
       {
@@ -655,6 +655,7 @@ window.MM_DATA = {
           "Ships flat"
         ],
         "image": "../img/art/figure-study.jpg",
+        "badge": "New",
         "stock": 25
       }
     ]
