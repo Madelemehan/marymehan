@@ -613,6 +613,21 @@ window.MM_DATA = {
         "stock": 25
       },
       {
+        "id": "rider-headphones-print",
+        "name": "It’s Me, Of Course — Print",
+        "category": "prints",
+        "price": 150.0,
+        "description": "It's me, of course — the rider wears the headphones I always wear; people who know me recognize them. Drawn January 28, 2022, with the artist's lipstick blot and date on the piece. A signed limited-edition print.",
+        "features": [
+          "Signed, limited edition of 25",
+          "Archival giclée print",
+          "Fits a 13 × 19 in frame",
+          "Ships flat"
+        ],
+        "image": "../img/art/rider-headphones.jpg",
+        "stock": 25
+      },
+      {
         "id": "angel-print",
         "name": "Angel in the Heart \u2014 Print",
         "category": "prints",
