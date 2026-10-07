@@ -614,7 +614,7 @@ window.MM_DATA = {
       },
       {
         "id": "rider-headphones-print",
-        "name": "It’s Me, Of Course — Print",
+        "name": "Rider with Headphones — Print",
         "category": "prints",
         "price": 150.0,
         "description": "It's me, of course — the rider wears the headphones I always wear; people who know me recognize them. Drawn January 28, 2022, with the artist's lipstick blot and date on the piece. A signed limited-edition print.",
