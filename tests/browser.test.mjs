@@ -122,7 +122,7 @@ for (const [label, base] of [['http', () => server.url], ['file://', () => pathT
         shopLinks: document.querySelectorAll('.site-footer .foot-links')[0]?.querySelectorAll('a').length,
       }));
       const hero = store.pages.home.hero;
-      const featuredNames = store.pages.home.featuredIds.map(id => store.products.find(p => p.id === id).name);
+      const featuredNames = JSON.parse(JSON.stringify(store.pages.home.featuredIds.map(id => store.products.find(p => p.id === id).name)));
       assert.equal(r.hero, hero.title.join(''));
       assert.equal(r.ctas, (hero.ctas || []).length);
       assert.equal(r.tiles, store.categories.length);
