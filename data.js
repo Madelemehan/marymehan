@@ -210,6 +210,13 @@ window.MM_DATA = {
         "role": "Ink on paper",
         "image": "img/art/figure-study.jpg",
         "href": "store/product.html?id=figure-print"
+      },
+      {
+        "name": "Eclipse Season",
+        "cat": "Myth & Figure",
+        "year": "n.d.",
+        "role": "Ink on paper",
+        "image": "img/art/eclipse-season.jpg"
       }
     ]
   },
