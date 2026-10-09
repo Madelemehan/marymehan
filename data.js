@@ -167,7 +167,7 @@ window.MM_DATA = {
         "name": "She Is Not an Exhibit",
         "cat": "The Gaze",
         "year": "2022",
-        "role": "Ink on paper",
+        "role": "Lead on paper",
         "image": "img/art/exhibit.jpg",
         "href": "store/product.html?id=exhibit-print"
       },
