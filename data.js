@@ -215,7 +215,7 @@ window.MM_DATA = {
         "name": "Eclipse Season",
         "cat": "Myth & Figure",
         "year": "n.d.",
-        "role": "Ink on paper",
+        "role": "Lead on paper",
         "image": "img/art/eclipse-season.jpg"
       }
     ]
