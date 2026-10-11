@@ -212,6 +212,14 @@ window.MM_DATA = {
         "href": "store/product.html?id=figure-print"
       },
       {
+        "name": "Deep Sea Diver",
+        "cat": "Myth & Figure",
+        "year": "2022",
+        "role": "Ink on paper",
+        "image": "img/art/deep-sea-diver.jpg",
+        "href": "store/product.html?id=deep-sea-diver-print"
+      },
+      {
         "name": "Eclipse Season",
         "cat": "Myth & Figure",
         "year": "n.d.",
@@ -671,6 +679,22 @@ window.MM_DATA = {
           "Ships flat"
         ],
         "image": "../img/art/figure-study.jpg",
+        "badge": "New",
+        "stock": 25
+      },
+      {
+        "id": "deep-sea-diver-print",
+        "name": "Deep Sea Diver — Print",
+        "category": "prints",
+        "price": 150.0,
+        "description": "A mermaid with flowing hair descends toward a moon face sealed with a lipstick kiss. Drawn on the Oregon coast, for the Pluto in Scorpio generation — the deep sea divers. A signed limited-edition print.",
+        "features": [
+          "Signed, limited edition of 25",
+          "Archival giclée print",
+          "Fits a 13 × 19 in frame",
+          "Ships flat"
+        ],
+        "image": "../img/art/deep-sea-diver.jpg",
         "badge": "New",
         "stock": 25
       }
