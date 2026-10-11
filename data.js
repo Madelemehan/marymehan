@@ -220,6 +220,14 @@ window.MM_DATA = {
         "href": "store/product.html?id=deep-sea-diver-print"
       },
       {
+        "name": "Neptune in Her Twelfth",
+        "cat": "Myth & Figure",
+        "year": "n.d.",
+        "role": "Ink on paper",
+        "image": "img/art/neptune-twelfth.jpg",
+        "href": "store/product.html?id=neptune-twelfth-print"
+      },
+      {
         "name": "Eclipse Season",
         "cat": "Myth & Figure",
         "year": "n.d.",
@@ -695,6 +703,22 @@ window.MM_DATA = {
           "Ships flat"
         ],
         "image": "../img/art/deep-sea-diver.jpg",
+        "badge": "New",
+        "stock": 25
+      },
+      {
+        "id": "neptune-twelfth-print",
+        "name": "Neptune in Her Twelfth — Print",
+        "category": "prints",
+        "price": 150.0,
+        "description": "A figure floats serene in blue water, eyes closed. Neptune in the twelfth house — the planet of dreams in the house of the unconscious. A signed limited-edition print.",
+        "features": [
+          "Signed, limited edition of 25",
+          "Archival giclée print",
+          "Fits a 13 × 19 in frame",
+          "Ships flat"
+        ],
+        "image": "../img/art/neptune-twelfth.jpg",
         "badge": "New",
         "stock": 25
       }
