@@ -409,7 +409,6 @@ window.MM_DATA = {
         "categoriesHeading": "Shop by Category",
         "featuredHeading": "Featured",
         "featuredIds": [
-          "nate-counter-ticket-print",
           "exhibit-print",
           "becoming-print",
           "northnode-print",
