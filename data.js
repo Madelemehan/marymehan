@@ -107,61 +107,124 @@ window.MM_DATA = {
     "allLabel": "All",
     "items": [
       {
-        "name": "Compersion",
+        "name": "Horse and Rider",
+        "cat": "Myth & Figure",
+        "year": "n.d.",
+        "role": "Ink on paper",
+        "image": "img/art/horse.jpg",
+        "href": "store/product.html?id=horse-print"
+      },
+      {
+        "name": "Neptune in Her Twelfth",
+        "cat": "Myth & Figure",
+        "year": "n.d.",
+        "role": "Ink on paper",
+        "image": "img/art/neptune-twelfth.jpg",
+        "href": "store/product.html?id=neptune-twelfth-print"
+      },
+            {
+        "name": "Rider with Headphones",
+        "cat": "Myth & Figure",
+        "year": "n.d.",
+        "role": "Ink on paper",
+        "image": "img/art/rider-headphones.jpg",
+        "href": "store/product.html?id=rider-headphones-print"
+      },
+      {
+        "name": "Figure Study",
+        "cat": "Myth & Figure",
+        "year": "n.d.",
+        "role": "Ink on paper",
+        "image": "img/art/figure-study.jpg",
+        "href": "store/product.html?id=figure-print"
+      },
+      {
+        "name": "Angel in the Heart",
+        "cat": "Myth & Figure",
+        "year": "2022",
+        "role": "Ink on paper",
+        "image": "img/art/angel-heart.jpg",
+        "href": "store/product.html?id=angel-print"
+      },
+            {
+        "name": "Eyes",
         "cat": "The Gaze",
         "year": "n.d.",
         "role": "Ink on paper",
-        "image": "img/art/compersion.jpg",
-        "href": "store/product.html?id=compersion-print"
+        "image": "img/art/eyes-blue.jpg",
+        "href": "store/product.html?id=eyes-blue-print"
       },
-      {
-        "name": "Horse Rising",
+            {
+        "name": "Woman Holding the Shroud Open and Dancing",
         "cat": "Myth & Figure",
         "year": "n.d.",
         "role": "Ink on paper",
-        "image": "img/art/horse-water.jpg",
-        "href": "store/product.html?id=horse-rising-print"
+        "image": "img/art/dancer-shroud.jpg",
+        "href": "store/product.html?id=dancer-shroud-print"
       },
-      {
-        "name": "Something Wonderful Is Going to Happen to Me Today",
+            {
+        "name": "Way Too Free",
         "cat": "Becoming",
         "year": "n.d.",
         "role": "Ink on paper",
-        "image": "img/art/something-wonderful.jpg",
-        "href": "store/product.html?id=something-wonderful-print",
-        "thumbPosition": "50% 100%"
-      },
-{
-        "name": "Gemini Full Moon",
-        "cat": "Myth & Figure",
-        "year": "n.d.",
-        "role": "Ink on paper",
-        "image": "img/art/gemini-moon.jpg",
-        "href": "store/product.html?id=gemini-moon-print"
+        "image": "img/art/way-too-free.jpg",
+        "href": "store/product.html?id=way-too-free-print"
       },
             {
-        "name": "What Are You Aiming At",
-        "cat": "Myth & Figure",
-        "year": "n.d.",
-        "role": "Ink on paper",
-        "image": "img/art/horse-forest.jpg",
-        "href": "store/product.html?id=what-are-you-aiming-at-print"
-      },
-      {
-        "name": "Statistically: Unlikely",
-        "cat": "Becoming",
-        "year": "n.d.",
-        "role": "Ink on paper",
-        "image": "img/art/statistically-unlikely.jpg",
-        "href": "store/product.html?id=statistically-unlikely-print"
-      },
-            {
-        "name": "Counter-Ticket for Nate",
+        "name": "Noise Canceling X",
         "cat": "The Gaze",
         "year": "n.d.",
         "role": "Ink on paper",
-        "image": "img/art/nate-ticket.jpg",
-        "href": "store/product.html?id=nate-counter-ticket-print"
+        "image": "img/art/noise-canceling-x.jpg",
+        "href": "store/product.html?id=noise-canceling-x-print"
+      },
+            {
+        "name": "End of Eclipse Season",
+        "cat": "Becoming",
+        "year": "n.d.",
+        "role": "Ink on paper",
+        "image": "img/art/end-of-eclipse-season.jpg",
+        "href": "store/product.html?id=end-of-eclipse-season-print"
+      },
+            {
+        "name": "La Nina es Fuerte Yo Le Creo",
+        "cat": "Becoming",
+        "year": "n.d.",
+        "role": "Ink on paper",
+        "image": "img/art/la-nina.jpg",
+        "href": "store/product.html?id=la-nina-print"
+      },
+            {
+        "name": "Profile with Headphones",
+        "cat": "The Gaze",
+        "year": "n.d.",
+        "role": "Ink on paper",
+        "image": "img/art/profile-headphones.jpg",
+        "href": "store/product.html?id=profile-headphones-print"
+      },
+            {
+        "name": "Sepia Eyes",
+        "cat": "The Gaze",
+        "year": "n.d.",
+        "role": "Ink on paper",
+        "image": "img/art/sepia-eyes.jpg",
+        "href": "store/product.html?id=sepia-eyes-print"
+      },
+            {
+        "name": "The Fish & the Bird",
+        "cat": "Myth & Figure",
+        "year": "n.d.",
+        "role": "Ink on paper",
+        "image": "img/art/fish-bird.jpg",
+        "href": "store/product.html?id=fish-bird-print"
+      },
+      {
+        "name": "North Node in Taurus",
+        "cat": "Becoming",
+        "year": "2022",
+        "role": "Ink and wash on paper",
+        "image": "img/art/north-node.jpg",
+        "href": "store/product.html?id=northnode-print"
       },
       {
         "name": "She Is Not an Exhibit",
@@ -180,38 +243,6 @@ window.MM_DATA = {
         "href": "store/product.html?id=becoming-print"
       },
       {
-        "name": "North Node in Taurus",
-        "cat": "Becoming",
-        "year": "2022",
-        "role": "Ink and wash on paper",
-        "image": "img/art/north-node.jpg",
-        "href": "store/product.html?id=northnode-print"
-      },
-      {
-        "name": "Horse and Rider",
-        "cat": "Myth & Figure",
-        "year": "n.d.",
-        "role": "Ink on paper",
-        "image": "img/art/horse.jpg",
-        "href": "store/product.html?id=horse-print"
-      },
-      {
-        "name": "Angel in the Heart",
-        "cat": "Myth & Figure",
-        "year": "2022",
-        "role": "Ink on paper",
-        "image": "img/art/angel-heart.jpg",
-        "href": "store/product.html?id=angel-print"
-      },
-      {
-        "name": "Figure Study",
-        "cat": "Myth & Figure",
-        "year": "n.d.",
-        "role": "Ink on paper",
-        "image": "img/art/figure-study.jpg",
-        "href": "store/product.html?id=figure-print"
-      },
-      {
         "name": "Deep Sea Diver",
         "cat": "Myth & Figure",
         "year": "2022",
@@ -220,12 +251,53 @@ window.MM_DATA = {
         "href": "store/product.html?id=deep-sea-diver-print"
       },
       {
-        "name": "Neptune in Her Twelfth",
+        "name": "Horse Rising",
         "cat": "Myth & Figure",
         "year": "n.d.",
         "role": "Ink on paper",
-        "image": "img/art/neptune-twelfth.jpg",
-        "href": "store/product.html?id=neptune-twelfth-print"
+        "image": "img/art/horse-water.jpg",
+        "href": "store/product.html?id=horse-rising-print"
+      },
+      {
+        "name": "Something Wonderful Is Going to Happen to Me Today",
+        "cat": "Becoming",
+        "year": "n.d.",
+        "role": "Ink on paper",
+        "image": "img/art/something-wonderful.jpg",
+        "href": "store/product.html?id=something-wonderful-print",
+        "thumbPosition": "50% 100%"
+      },
+      {
+        "name": "Gemini Full Moon",
+        "cat": "Myth & Figure",
+        "year": "n.d.",
+        "role": "Ink on paper",
+        "image": "img/art/gemini-moon.jpg",
+        "href": "store/product.html?id=gemini-moon-print"
+      },
+      {
+        "name": "What Are You Aiming At",
+        "cat": "Myth & Figure",
+        "year": "n.d.",
+        "role": "Ink on paper",
+        "image": "img/art/horse-forest.jpg",
+        "href": "store/product.html?id=what-are-you-aiming-at-print"
+      },
+      {
+        "name": "Statistically: Unlikely",
+        "cat": "Becoming",
+        "year": "n.d.",
+        "role": "Ink on paper",
+        "image": "img/art/statistically-unlikely.jpg",
+        "href": "store/product.html?id=statistically-unlikely-print"
+      },
+      {
+        "name": "Counter-Ticket for Nate",
+        "cat": "The Gaze",
+        "year": "n.d.",
+        "role": "Ink on paper",
+        "image": "img/art/nate-ticket.jpg",
+        "href": "store/product.html?id=nate-counter-ticket-print"
       },
       {
         "name": "Eclipse Season",
@@ -233,6 +305,14 @@ window.MM_DATA = {
         "year": "n.d.",
         "role": "Lead on paper",
         "image": "img/art/eclipse-season.jpg"
+      },
+      {
+        "name": "Compersion",
+        "cat": "The Gaze",
+        "year": "n.d.",
+        "role": "Ink on paper",
+        "image": "img/art/compersion.jpg",
+        "href": "store/product.html?id=compersion-print"
       }
     ]
   },
