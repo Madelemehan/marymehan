@@ -468,115 +468,247 @@ window.MM_DATA = {
         "description": "Signed limited-edition prints"
       }
     ],
-    "products": [      {
-        "id": "compersion-print",
-        "name": "Compersion \u2014 First Edition Print",
+    "products": [
+      {
+        "id": "horse-print",
+        "name": "Horse and Rider \u2014 Print",
         "category": "prints",
         "price": 150.0,
-        "description": "The diary page you weren\u2019t supposed to read: \u201cDo I want you to have as much fun without me? What kind of fucked up question is that? No?\u201d This would be a first edition print of the original ink sketch, available by request \u2014 email hello@marymehan.com.",
+        "description": "A rider on a rearing horse, drawn fast in blue ink. A signed limited-edition print.",
         "features": [
-          "First edition print, signed",
+          "Signed, limited edition of 25",
           "Archival gicl\u00e9e print",
           "Fits a 13 \u00d7 19 in frame",
-          "Available by request only"
+          "Ships flat"
         ],
-        "image": "../img/art/compersion.jpg",
-        "byRequest": true,
+        "image": "../img/art/horse.jpg",
+        "badge": "New",
         "stock": 25
       },
       {
-        "id": "horse-rising-print",
-        "name": "Horse Rising \u2014 Print",
+        "id": "neptune-twelfth-print",
+        "name": "Neptune in Her Twelfth — Print",
         "category": "prints",
         "price": 150.0,
-        "description": "A horse rising out of black water, sealed with her lipstick kiss. Mythic, wet, and unmistakably hers. A signed limited-edition print of the original ink drawing.",
+        "description": "A figure floats serene in blue water, eyes closed. Neptune in the twelfth house — the planet of dreams in the house of the unconscious. A signed limited-edition print.",
         "features": [
           "Signed, limited edition of 25",
-          "Archival gicl\u00e9e print",
-          "Fits a 13 \u00d7 19 in frame",
+          "Archival giclée print",
+          "Fits a 13 × 19 in frame",
           "Ships flat"
         ],
-        "image": "../img/art/horse-water.jpg",
+        "image": "../img/art/neptune-twelfth.jpg",
+        "badge": "New",
         "stock": 25
       },
       {
-        "id": "something-wonderful-print",
-        "name": "Something Wonderful Is Going to Happen to Me Today \u2014 Print",
+        "id": "rider-headphones-print",
+        "name": "Rider with Headphones — Print",
         "category": "prints",
         "price": 150.0,
-        "description": "A tiny figure under a huge sky, with a prayer written underneath in her own hand. A signed limited-edition print of the original ink drawing.",
+        "description": "It's me, of course — the rider wears the headphones I always wear; people who know me recognize them. Drawn January 28, 2022, with the artist's lipstick blot and date on the piece. A signed limited-edition print.",
         "features": [
           "Signed, limited edition of 25",
-          "Archival gicl\u00e9e print",
-          "Fits a 13 \u00d7 19 in frame",
+          "Archival giclée print",
+          "Fits a 13 × 19 in frame",
           "Ships flat"
         ],
-        "image": "../img/art/something-wonderful.jpg",
-        "stock": 25,
-        "thumbPosition": "50% 100%"
-      },
-{
-        "id": "gemini-moon-print",
-        "name": "Gemini Full Moon \u2014 Print",
-        "category": "prints",
-        "price": 150.0,
-        "description": "Two winged figures tangled inside a full moon, drawn on the Gemini full moon and sealed with a kiss. A signed limited-edition print of the original ink drawing.",
-        "features": [
-          "Signed, limited edition of 25",
-          "Archival gicl\u00e9e print",
-          "Fits a 13 \u00d7 19 in frame",
-          "Ships flat"
-        ],
-        "image": "../img/art/gemini-moon.jpg",
-        "stock": 25
-      },
-            {
-        "id": "what-are-you-aiming-at-print",
-        "name": "What Are You Aiming At \u2014 Print",
-        "category": "prints",
-        "price": 150.0,
-        "description": "A rider on horseback among winter trees, interrogating herself in the margins: \u201cMary, what are you aiming at?\u201d \u201cI don\u2019t think about that.\u201d A signed limited-edition print of the original ink drawing.",
-        "features": [
-          "Signed, limited edition of 25",
-          "Archival gicl\u00e9e print",
-          "Fits a 13 \u00d7 19 in frame",
-          "Ships flat"
-        ],
-        "image": "../img/art/horse-forest.jpg",
+        "image": "../img/art/rider-headphones.jpg",
+        "badge": "New",
         "stock": 25
       },
       {
-        "id": "statistically-unlikely-print",
-        "name": "Statistically: Unlikely \u2014 Print",
+        "id": "figure-print",
+        "name": "Figure Study \u2014 Print",
         "category": "prints",
         "price": 150.0,
-        "description": "\u201cOver for her...? Pfshh. Statistically: unlikely.\u201d Defiance in her own handwriting, over a reclining figure \u2014 among other things, too pretty. A signed limited-edition print of the original ink drawing.",
+        "description": "A figure study in purple ink, worked over geometric construction lines. A signed limited-edition print.",
         "features": [
           "Signed, limited edition of 25",
           "Archival gicl\u00e9e print",
           "Fits a 13 \u00d7 19 in frame",
           "Ships flat"
         ],
-        "image": "../img/art/statistically-unlikely.jpg",
+        "image": "../img/art/figure-study.jpg",
+        "badge": "New",
         "stock": 25
       },
-            {
-        "id": "nate-counter-ticket-print",
-        "name": "Counter-Ticket for Nate \u2014 Print",
+      {
+        "id": "angel-print",
+        "name": "Angel in the Heart \u2014 Print",
         "category": "prints",
         "price": 150.0,
-        "description": "She drew this counter-ticket for Nate \u2014 a kid barred from the skate park \u2014 and carried it into the police station to argue he should be let back in. It didn\u2019t work, but the ticket stands: thou shalt not hold Nate down. A signed limited-edition print of the original.",
+        "description": "An angel seated inside a hand-drawn heart. A signed limited-edition print of the original ink drawing.",
         "features": [
           "Signed, limited edition of 25",
           "Archival gicl\u00e9e print",
           "Fits a 13 \u00d7 19 in frame",
           "Ships flat"
         ],
-        "image": "../img/art/nate-ticket.jpg",
-        "stock": 25,
-        "badge": "New"
+        "image": "../img/art/angel-heart.jpg",
+        "badge": "New",
+        "stock": 25
       },
-
+      {
+        "id": "eyes-blue-print",
+        "name": "Eyes \u2014 Print",
+        "category": "prints",
+        "price": 150.0,
+        "description": "Two eyes in blue ink, drawn close and unflinching. A signed limited-edition print.",
+        "features": [
+          "Signed, limited edition of 25",
+          "Archival gicl\u00e9e print",
+          "Fits a 13 \u00d7 19 in frame",
+          "Ships flat"
+        ],
+        "image": "../img/art/eyes-blue.jpg",
+        "badge": "New",
+        "stock": 25
+      },
+      {
+        "id": "dancer-shroud-print",
+        "name": "Woman Holding the Shroud Open and Dancing \u2014 Print",
+        "category": "prints",
+        "price": 150.0,
+        "description": "A dancer holding the shroud open. A signed limited-edition print.",
+        "features": [
+          "Signed, limited edition of 25",
+          "Archival gicl\u00e9e print",
+          "Fits a 13 \u00d7 19 in frame",
+          "Ships flat"
+        ],
+        "image": "../img/art/dancer-shroud.jpg",
+        "badge": "New",
+        "stock": 25
+      },
+      {
+        "id": "way-too-free-print",
+        "name": "Way Too Free \u2014 Print",
+        "category": "prints",
+        "price": 150.0,
+        "description": "A figure in purple ink, with the words Way Too Free underneath. A signed limited-edition print.",
+        "features": [
+          "Signed, limited edition of 25",
+          "Archival gicl\u00e9e print",
+          "Fits a 13 \u00d7 19 in frame",
+          "Ships flat"
+        ],
+        "image": "../img/art/way-too-free.jpg",
+        "badge": "New",
+        "stock": 25
+      },
+      {
+        "id": "noise-canceling-x-print",
+        "name": "Noise Canceling X \u2014 Print",
+        "category": "prints",
+        "price": 150.0,
+        "description": "A face in headphones, eyes closed. Noise Canceling X. A signed limited-edition print.",
+        "features": [
+          "Signed, limited edition of 25",
+          "Archival gicl\u00e9e print",
+          "Fits a 13 \u00d7 19 in frame",
+          "Ships flat"
+        ],
+        "image": "../img/art/noise-canceling-x.jpg",
+        "badge": "New",
+        "stock": 25
+      },
+      {
+        "id": "end-of-eclipse-season-print",
+        "name": "End of Eclipse Season \u2014 Print",
+        "category": "prints",
+        "price": 150.0,
+        "description": "Who is the angel that frustrates you, demon? End of Eclipse Season. A signed limited-edition print.",
+        "features": [
+          "Signed, limited edition of 25",
+          "Archival gicl\u00e9e print",
+          "Fits a 13 \u00d7 19 in frame",
+          "Ships flat"
+        ],
+        "image": "../img/art/end-of-eclipse-season.jpg",
+        "badge": "New",
+        "stock": 25
+      },
+      {
+        "id": "la-nina-print",
+        "name": "La Nina es Fuerte Yo Le Creo \u2014 Print",
+        "category": "prints",
+        "price": 150.0,
+        "description": "La Nina es Fuerte Yo Le Creo. A signed limited-edition print.",
+        "features": [
+          "Signed, limited edition of 25",
+          "Archival gicl\u00e9e print",
+          "Fits a 13 \u00d7 19 in frame",
+          "Ships flat"
+        ],
+        "image": "../img/art/la-nina.jpg",
+        "badge": "New",
+        "stock": 25
+      },
+      {
+        "id": "profile-headphones-print",
+        "name": "Profile with Headphones \u2014 Print",
+        "category": "prints",
+        "price": 150.0,
+        "description": "A profile in black ink, wearing headphones, sealed with a lipstick kiss. A signed limited-edition print.",
+        "features": [
+          "Signed, limited edition of 25",
+          "Archival gicl\u00e9e print",
+          "Fits a 13 \u00d7 19 in frame",
+          "Ships flat"
+        ],
+        "image": "../img/art/profile-headphones.jpg",
+        "badge": "New",
+        "stock": 25
+      },
+      {
+        "id": "sepia-eyes-print",
+        "name": "Sepia Eyes \u2014 Print",
+        "category": "prints",
+        "price": 150.0,
+        "description": "Eyes in sepia ink, drawn close. A signed limited-edition print.",
+        "features": [
+          "Signed, limited edition of 25",
+          "Archival gicl\u00e9e print",
+          "Fits a 13 \u00d7 19 in frame",
+          "Ships flat"
+        ],
+        "image": "../img/art/sepia-eyes.jpg",
+        "badge": "New",
+        "stock": 25
+      },
+      {
+        "id": "fish-bird-print",
+        "name": "The Fish & the Bird \u2014 Print",
+        "category": "prints",
+        "price": 150.0,
+        "description": "The fish & the bird came to live in Newport. God, he loved her, and she him. Capricorn Season. A signed limited-edition print.",
+        "features": [
+          "Signed, limited edition of 25",
+          "Archival gicl\u00e9e print",
+          "Fits a 13 \u00d7 19 in frame",
+          "Ships flat"
+        ],
+        "image": "../img/art/fish-bird.jpg",
+        "badge": "New",
+        "stock": 25
+      },
+      {
+        "id": "northnode-print",
+        "name": "North Node in Taurus \u2014 Print",
+        "category": "prints",
+        "price": 150.0,
+        "description": "A dream in ink wash: stars, a crescent moon, a figure adrift. Marked with the north node in Taurus. A signed limited-edition print.",
+        "features": [
+          "Signed, limited edition of 25",
+          "Archival gicl\u00e9e print",
+          "Fits a 13 \u00d7 19 in frame",
+          "Ships flat"
+        ],
+        "image": "../img/art/north-node.jpg",
+        "badge": "New",
+        "stock": 25
+      },
       {
         "id": "exhibit-print",
         "name": "She Is Not an Exhibit \u2014 Print",
@@ -610,86 +742,6 @@ window.MM_DATA = {
         "stock": 25
       },
       {
-        "id": "northnode-print",
-        "name": "North Node in Taurus \u2014 Print",
-        "category": "prints",
-        "price": 150.0,
-        "description": "A dream in ink wash: stars, a crescent moon, a figure adrift. Marked with the north node in Taurus. A signed limited-edition print.",
-        "features": [
-          "Signed, limited edition of 25",
-          "Archival gicl\u00e9e print",
-          "Fits a 13 \u00d7 19 in frame",
-          "Ships flat"
-        ],
-        "image": "../img/art/north-node.jpg",
-        "badge": "New",
-        "stock": 25
-      },
-      {
-        "id": "horse-print",
-        "name": "Horse and Rider \u2014 Print",
-        "category": "prints",
-        "price": 150.0,
-        "description": "A rider on a rearing horse, drawn fast in blue ink. A signed limited-edition print.",
-        "features": [
-          "Signed, limited edition of 25",
-          "Archival gicl\u00e9e print",
-          "Fits a 13 \u00d7 19 in frame",
-          "Ships flat"
-        ],
-        "image": "../img/art/horse.jpg",
-        "badge": "New",
-        "stock": 25
-      },
-      {
-        "id": "rider-headphones-print",
-        "name": "Rider with Headphones — Print",
-        "category": "prints",
-        "price": 150.0,
-        "description": "It's me, of course — the rider wears the headphones I always wear; people who know me recognize them. Drawn January 28, 2022, with the artist's lipstick blot and date on the piece. A signed limited-edition print.",
-        "features": [
-          "Signed, limited edition of 25",
-          "Archival giclée print",
-          "Fits a 13 × 19 in frame",
-          "Ships flat"
-        ],
-        "image": "../img/art/rider-headphones.jpg",
-        "badge": "New",
-        "stock": 25
-      },
-      {
-        "id": "angel-print",
-        "name": "Angel in the Heart \u2014 Print",
-        "category": "prints",
-        "price": 150.0,
-        "description": "An angel seated inside a hand-drawn heart. A signed limited-edition print of the original ink drawing.",
-        "features": [
-          "Signed, limited edition of 25",
-          "Archival gicl\u00e9e print",
-          "Fits a 13 \u00d7 19 in frame",
-          "Ships flat"
-        ],
-        "image": "../img/art/angel-heart.jpg",
-        "badge": "New",
-        "stock": 25
-      },
-      {
-        "id": "figure-print",
-        "name": "Figure Study \u2014 Print",
-        "category": "prints",
-        "price": 150.0,
-        "description": "A figure study in purple ink, worked over geometric construction lines. A signed limited-edition print.",
-        "features": [
-          "Signed, limited edition of 25",
-          "Archival gicl\u00e9e print",
-          "Fits a 13 \u00d7 19 in frame",
-          "Ships flat"
-        ],
-        "image": "../img/art/figure-study.jpg",
-        "badge": "New",
-        "stock": 25
-      },
-      {
         "id": "deep-sea-diver-print",
         "name": "Deep Sea Diver — Print",
         "category": "prints",
@@ -706,21 +758,114 @@ window.MM_DATA = {
         "stock": 25
       },
       {
-        "id": "neptune-twelfth-print",
-        "name": "Neptune in Her Twelfth — Print",
+        "id": "horse-rising-print",
+        "name": "Horse Rising \u2014 Print",
         "category": "prints",
         "price": 150.0,
-        "description": "A figure floats serene in blue water, eyes closed. Neptune in the twelfth house — the planet of dreams in the house of the unconscious. A signed limited-edition print.",
+        "description": "A horse rising out of black water, sealed with her lipstick kiss. Mythic, wet, and unmistakably hers. A signed limited-edition print of the original ink drawing.",
         "features": [
           "Signed, limited edition of 25",
-          "Archival giclée print",
-          "Fits a 13 × 19 in frame",
+          "Archival gicl\u00e9e print",
+          "Fits a 13 \u00d7 19 in frame",
           "Ships flat"
         ],
-        "image": "../img/art/neptune-twelfth.jpg",
-        "badge": "New",
+        "image": "../img/art/horse-water.jpg",
+        "stock": 25
+      },
+      {
+        "id": "something-wonderful-print",
+        "name": "Something Wonderful Is Going to Happen to Me Today \u2014 Print",
+        "category": "prints",
+        "price": 150.0,
+        "description": "A tiny figure under a huge sky, with a prayer written underneath in her own hand. A signed limited-edition print of the original ink drawing.",
+        "features": [
+          "Signed, limited edition of 25",
+          "Archival gicl\u00e9e print",
+          "Fits a 13 \u00d7 19 in frame",
+          "Ships flat"
+        ],
+        "image": "../img/art/something-wonderful.jpg",
+        "stock": 25,
+        "thumbPosition": "50% 100%"
+      },
+      {
+        "id": "gemini-moon-print",
+        "name": "Gemini Full Moon \u2014 Print",
+        "category": "prints",
+        "price": 150.0,
+        "description": "Two winged figures tangled inside a full moon, drawn on the Gemini full moon and sealed with a kiss. A signed limited-edition print of the original ink drawing.",
+        "features": [
+          "Signed, limited edition of 25",
+          "Archival gicl\u00e9e print",
+          "Fits a 13 \u00d7 19 in frame",
+          "Ships flat"
+        ],
+        "image": "../img/art/gemini-moon.jpg",
+        "stock": 25
+      },
+      {
+        "id": "what-are-you-aiming-at-print",
+        "name": "What Are You Aiming At \u2014 Print",
+        "category": "prints",
+        "price": 150.0,
+        "description": "A rider on horseback among winter trees, interrogating herself in the margins: \u201cMary, what are you aiming at?\u201d \u201cI don\u2019t think about that.\u201d A signed limited-edition print of the original ink drawing.",
+        "features": [
+          "Signed, limited edition of 25",
+          "Archival gicl\u00e9e print",
+          "Fits a 13 \u00d7 19 in frame",
+          "Ships flat"
+        ],
+        "image": "../img/art/horse-forest.jpg",
+        "stock": 25
+      },
+      {
+        "id": "statistically-unlikely-print",
+        "name": "Statistically: Unlikely \u2014 Print",
+        "category": "prints",
+        "price": 150.0,
+        "description": "\u201cOver for her...? Pfshh. Statistically: unlikely.\u201d Defiance in her own handwriting, over a reclining figure \u2014 among other things, too pretty. A signed limited-edition print of the original ink drawing.",
+        "features": [
+          "Signed, limited edition of 25",
+          "Archival gicl\u00e9e print",
+          "Fits a 13 \u00d7 19 in frame",
+          "Ships flat"
+        ],
+        "image": "../img/art/statistically-unlikely.jpg",
+        "stock": 25
+      },
+      {
+        "id": "nate-counter-ticket-print",
+        "name": "Counter-Ticket for Nate \u2014 Print",
+        "category": "prints",
+        "price": 150.0,
+        "description": "She drew this counter-ticket for Nate \u2014 a kid barred from the skate park \u2014 and carried it into the police station to argue he should be let back in. It didn\u2019t work, but the ticket stands: thou shalt not hold Nate down. A signed limited-edition print of the original.",
+        "features": [
+          "Signed, limited edition of 25",
+          "Archival gicl\u00e9e print",
+          "Fits a 13 \u00d7 19 in frame",
+          "Ships flat"
+        ],
+        "image": "../img/art/nate-ticket.jpg",
+        "stock": 25,
+        "badge": "New"
+      },
+      {
+        "id": "compersion-print",
+        "name": "Compersion \u2014 First Edition Print",
+        "category": "prints",
+        "price": 150.0,
+        "description": "The diary page you weren\u2019t supposed to read: \u201cDo I want you to have as much fun without me? What kind of fucked up question is that? No?\u201d This would be a first edition print of the original ink sketch, available by request \u2014 email hello@marymehan.com.",
+        "features": [
+          "First edition print, signed",
+          "Archival gicl\u00e9e print",
+          "Fits a 13 \u00d7 19 in frame",
+          "Available by request only"
+        ],
+        "image": "../img/art/compersion.jpg",
+        "byRequest": true,
         "stock": 25
       }
+    
     ]
   },
   "backstory": {
