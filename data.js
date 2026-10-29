@@ -409,12 +409,12 @@ window.MM_DATA = {
         "categoriesHeading": "Shop by Category",
         "featuredHeading": "Featured",
         "featuredIds": [
-          "exhibit-print",
-          "becoming-print",
-          "northnode-print",
           "horse-print",
+          "neptune-twelfth-print",
+          "rider-headphones-print",
+          "figure-print",
           "angel-print",
-          "figure-print"
+          "eyes-blue-print"
         ],
         "featuredMore": {
           "label": "Shop all",
