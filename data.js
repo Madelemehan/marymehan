@@ -520,7 +520,7 @@ window.MM_DATA = {
       },
       "checkout": {
         "heading": "Checkout",
-        "sub": "Review your order and pay securely with PayPal."
+        "sub": "Review your order and pay with PayPal, or with Venmo."
       },
       "thankyou": {
         "title": "Order confirmed",
@@ -529,7 +529,7 @@ window.MM_DATA = {
       }
     },
     "footer": {
-      "note": "Payments secured by PayPal. We never store your payment details."
+      "note": "Pay with PayPal or Venmo. We never store your payment details."
     },
     "taglines": [
       "Work that holds its shape.",
