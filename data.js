@@ -313,6 +313,13 @@ window.MM_DATA = {
         "role": "Ink on paper",
         "image": "img/art/compersion.jpg",
         "href": "store/product.html?id=compersion-print"
+      },
+      {
+        "name": "Venus in Cancer Square Jupiter in Aries",
+        "cat": "Myth & Figure",
+        "year": "2022",
+        "role": "Ink on paper",
+        "image": "img/art/venus-square-jupiter-aries.jpg"
       }
     ]
   },
@@ -961,6 +968,30 @@ window.MM_DATA = {
       "All the horses are from StarGlow Farms, her family farm, named for the stars and her mother's maiden name, Starita. The horses were named after constellations. Her mother was a veterinarian and holistic energy practitioner who loved horses. The horse drawings are mourning, for her mother, her mother's mother, and all mothers, and for the end of the earth as humans have known it, told like a child at a wake: with humor, and with grief.",
       "If you know, you know. Some pieces are messages to a specific person, but she puts them out generally, so they no longer belong only to that person. The actions of others are not going to be the artist's secret to keep, or the assailant's win.",
       "Prints are $150, signed, limited to 25, archival giclée. Originals are not for sale. Commissions: hello@marymehan.com. Full collection: marymehan.com/store"
-]
+    ],
+    "works": [
+      {
+        "name": "Horse and Rider",
+        "image": "img/art/horse.jpg",
+        "year": "n.d.",
+        "narrative": [
+          "I don't know how I drew this. Everything in it feels so intentional. The lines look as though they were laid out before I ever chose them. It felt like I was drawing something out of the paper rather than putting something onto it. I still wonder why every drawing doesn't feel like that.",
+          "The rider is me. The rider is always me. I'm wearing my headphones, as you can see, and I've got that look on my face. The horse is completely untamed, leaping off into oblivion. We have no idea where we're going, and I look so ready for it.",
+          "But there's something about all the absence in this drawing, all that empty space. I am still that rider, and I feel like I've yet to land. It looks as though I'm leaping off with all the possibility in the world, but I remember that time during COVID, living in Nye Beach. I had a conversation with a former customs law enforcement officer who had worked with the Coast Guard. She told me she thought the world was never going to come back, that we were witnessing the beginning of the end of the world.",
+          "During that time in Nye Beach, I felt as though I had been reverted to a childlike state. Childlike, not childish."
+        ]
+      },
+      {
+        "name": "Venus in Cancer Square Jupiter in Aries",
+        "image": "img/art/venus-square-jupiter-aries.jpg",
+        "year": "2022",
+        "narrative": [
+          "July 25, 2022",
+          "On this date, Venus in Cancer squared Jupiter in Aries, coinciding with Jupiter's station retrograde.",
+          "A celestial encounter between intimacy and independence, emotional attachment and individual assertion, the desire for protection and the impulse toward expansion.",
+          "I was working extremely hard. It was one of the most creative moments of my life so far."
+        ]
+      }
+    ]
   }
 };

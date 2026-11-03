@@ -21,10 +21,15 @@
     <div class="backstory-body" id="backstory-body"></div>
   </div>
 
+  <!-- artwork narratives from data.js → backstory.works, in her own words, like a museum label -->
+  <div class="wrap">
+    <div id="backstory-works"></div>
+  </div>
+
   <!-- filled from data.js by main.js -->
   <footer class="site-footer"></footer>
 
-  <script src="js/main.js?v=20261030a"></script>
+  <script src="js/main.js?v=20261102a"></script>
   <script>
     mmPage((data) => {
       const backstory = data.backstory;
@@ -36,6 +41,26 @@
         const p = document.createElement("p");
         p.textContent = text;
         body.appendChild(p);
+      });
+      const worksBox = document.getElementById("backstory-works");
+      (backstory.works || []).forEach((work) => {
+        const section = document.createElement("section");
+        section.className = "backstory-work";
+        const heading = document.createElement("h2");
+        heading.textContent = work.name;
+        section.appendChild(heading);
+        if (work.image) {
+          const img = document.createElement("img");
+          img.src = work.image;
+          img.alt = work.name;
+          section.appendChild(img);
+        }
+        (work.narrative || []).forEach((text) => {
+          const p = document.createElement("p");
+          p.textContent = text;
+          section.appendChild(p);
+        });
+        worksBox.appendChild(section);
       });
     });
   </script>

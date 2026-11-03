@@ -87,6 +87,15 @@ test('backstory: heading and paragraphs', () => {
   for (const p of backstory.paragraphs) nonEmpty(p, 'backstory paragraph');
 });
 
+test('backstory: artwork narratives have a name, image, and narrative', () => {
+  for (const w of backstory.works || []) {
+    nonEmpty(w.name, 'backstory work name');
+    assert.ok(exists(w.image), `backstory work "${w.name}" image ${w.image} not found`);
+    assert.ok(w.narrative?.length, `backstory work "${w.name}" narrative is empty`);
+    for (const p of w.narrative) nonEmpty(p, `backstory work "${w.name}" narrative paragraph`);
+  }
+});
+
 test('store: categories and products are consistent', () => {
   const catIds = store.categories.map(c => c.id);
   assert.equal(new Set(catIds).size, catIds.length, 'duplicate category ids');
