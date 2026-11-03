@@ -991,6 +991,15 @@ window.MM_DATA = {
           "A celestial encounter between intimacy and independence, emotional attachment and individual assertion, the desire for protection and the impulse toward expansion.",
           "I was working extremely hard. It was one of the most creative moments of my life so far."
         ]
+      },
+      {
+        "name": "Neptune in Her Twelfth",
+        "image": "img/art/neptune-twelfth.jpg",
+        "year": "n.d.",
+        "narrative": [
+          "Neptune in the Twelfth House",
+          "A reclining figure suspended in the waters of the twelfth house, this work draws upon the astrological symbolism of Neptune, Pisces, dreams, sleep, and the unconscious. The river Styx, boundary between the living world and the underworld, informs the image's deeper atmosphere. The figure is simultaneously serene and taut, surrendered yet held in a state of extraordinary physical tension. Her nudity suggests an exposure beyond the physical: naked to circumstance, history, and the knowledge of a life not entirely of one's choosing. The composition was drawn partly upside down, an inversion that informed the abstraction of the head, neck, and mouth. A small heart rests in the suprasternal notch, an almost hidden point of tenderness within the figure's otherwise unguarded body. Neptune in the twelfth also evokes the archetype of the escape artist: the impulse to disappear, dissolve, transcend, or find passage beyond the boundaries of ordinary existence. For the artist, this symbolism carries an additional autobiographical dimension, touching upon inherited family narratives of death, the expectation of escape, and the difficult distinction between fate and inheritance. The original drawing and its digital reproduction differ considerably; the pixelation and reconstructed blue washes of the print become part of the work's contemporary material history, reflecting the increasingly mediated world through which the artist now creates. She floats between worlds, neither entirely asleep nor entirely gone."
+        ]
       }
     ]
   }
