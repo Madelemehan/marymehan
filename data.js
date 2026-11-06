@@ -960,11 +960,10 @@ window.MM_DATA = {
     "heading": "Backstory",
     "sub": "In her own words.",
     "paragraphs": [
-      "Mary Adele Mehan is a St. Louis-based artist and designer whose work explores love, grief, intimacy, and the complexities of human relationships.",
+      "Mary Adele Mehan is a St. Louis-based artist and designer whose work explores love, grief, privacy, intimacy, and the complexities of human relationships and artificial relationships.",
       "Working primarily in graphite on paper, Mary creates direct, expressive drawings that often function as conversations with others. Her work ranges from playful and provocative to deeply personal, using humor and vulnerability to explore the things we struggle to say out loud.",
-      "Some of her work draws inspiration from her family's farm in Oregon, where horses and the natural world became an important part of her artistic language.",
-      "Mary also has a background in fashion design and psychology, bringing together visual creativity and an enduring curiosity about people and human behavior.",
-      "Her work can be viewed at marymehan.com."
+      "Some of her work draws inspiration from her family's farm in Oregon, where horses, holistic medicine and the natural world became an important part of her artistic language.",
+      "Mary also has a background in fashion design from FIDM in Los Angeles, as well as woman's studies and psychology degrees from Portland State University, bringing together visual creativity and an enduring curiosity about people and human behavior."
     ],
     "works": [
       {
