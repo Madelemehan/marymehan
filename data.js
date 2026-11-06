@@ -960,14 +960,11 @@ window.MM_DATA = {
     "heading": "Backstory",
     "sub": "In her own words.",
     "paragraphs": [
-      "Mary Adele Mehan is an artist, designer, scholar, and advocate.",
-      "Her pedigree is wide on purpose. She earned an AA in Fashion Design from the Fashion Institute of Design & Merchandising, graduating with a 3.96 GPA, and a BA in Psychology, pre-medical, with a Women's Studies minor, from Portland State University in 2017. As an undergraduate she was a peer mentor and pre-medical peer leader, a tuition-paid, prestigious role. She was a recipient of multiple academic scholarships, and went on to medical education at Western University College of Osteopathic Medicine of the Pacific Northwest, 2018 to 2020. That path ended not because she dropped out, and not because she was dismissed. In her own account, she was unable to return when her gap year was cut short based on her teacher's demand, not part of the formal curriculum.",
-      "She draws in graphite on paper, one direct line, no background to hide behind. What she leaves out is part of it.",
-      "She draws the way she speaks: directly, without asking permission, and without leaving the difficult parts out. Her work is not detached observation or private confession. It is direct address, something said to someone. She speaks through images, responds to individuals, and sometimes answers hostility with art. The drawings can be playful, intimate, provocative, or combative. She reads the field like a strategist, chooses her response, and decides when and how to return fire.",
-      "Her subject is not the human condition in general. It is her own condition, and the condition and consequences of love: what love asks, what it costs, what it leaves, and what it does after.",
-      "All the horses are from StarGlow Farms, her family farm, named for the stars and her mother's maiden name, Starita. The horses were named after constellations. Her mother was a veterinarian and holistic energy practitioner who loved horses. The horse drawings are mourning, for her mother, her mother's mother, and all mothers, and for the end of the earth as humans have known it, told like a child at a wake: with humor, and with grief.",
-      "If you know, you know. Some pieces are messages to a specific person, but she puts them out generally, so they no longer belong only to that person. The actions of others are not going to be the artist's secret to keep, or the assailant's win.",
-      "Prints are $150, signed, limited to 25, archival giclée. Originals are not for sale. Commissions: hello@marymehan.com. Full collection: marymehan.com/store"
+      "Mary Adele Mehan is a St. Louis-based artist and designer whose work explores love, grief, intimacy, and the complexities of human relationships.",
+      "Working primarily in graphite on paper, Mary creates direct, expressive drawings that often function as conversations with others. Her work ranges from playful and provocative to deeply personal, using humor and vulnerability to explore the things we struggle to say out loud.",
+      "Some of her work draws inspiration from her family's farm in Oregon, where horses and the natural world became an important part of her artistic language.",
+      "Mary also has a background in fashion design and psychology, bringing together visual creativity and an enduring curiosity about people and human behavior.",
+      "Her work can be viewed at marymehan.com."
     ],
     "works": [
       {
